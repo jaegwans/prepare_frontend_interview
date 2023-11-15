@@ -2,73 +2,73 @@
 
 ## React
 
-- [React 시작](#React-시작)
-- [리액트는 라이브러리인가요 프레임워크인가요](#리액트는-라이브러리인가요-프레임워크인가요)
-- [리액트를 사용하는 이유](#리액트를-사용하는-이유)
-- [virtual DOM에 대해서 아나요](#virtual-DOM에-대해서-아나요)
-- [React에서 함수 컴포넌트와 클래스 컴포넌트의 차이 🔥](#React에서-함수-컴포넌트와-클래스-컴포넌트의-차이)
-- [리액트에서 함수형 컴포넌트라고 부르지 않고 함수 컴포넌트라고 부르는 이유가 무엇인가요🔥](#리액트에서-함수형-컴포넌트라고-부르지-않고-함수-컴포넌트라고-부르는-이유가-무엇인가요)
-- [props와 state의 차이🔥](#props와-state의-차이)
-- [Props가 컴포넌트간에 전달받는 것이라고 했는데 자식에서 부모로도 전달할 수 있는가 🔥](#props가-컴포넌트간에-전달받는-것이라고-했는데-자식에서-부모로도-전달할-수-있는가)
-- [FLUX에 대해서 아나요? 🔥🔥](#FLUX에-대해서-아나요)
-- [리덕스에 대해서 아나요? 🔥](#리덕스에-대해서-아나요)
-- [리덕스의 기본 원칙은? 🔥](#리덕스의-기본-원칙은)
-- [React에서 state의 불변성을 유지하라는 말이 있는데 이에 대해 설명해달라 🔥](#React에서-state의-불변성을-유지하라는-말이-있는데-이에-대해-설명해달라)
-- [리듀서 내부에서 불변성을 지키는 이유는? 전개 연산자의 단점을 해결할 수 있는 방법은 무엇인가 🔥](#리듀서-내부에서-불변성을-지키는-이유는?-전개-연산자의-단점을-해결할-수-있는-방법은-무엇인가)
-- [리액트 사용시에 부수효과로 인해 생기는 문제점이 있다면 🔥](#리액트-사용시에-부수효과로-인해-생기는-문제점이-있다면)
+-   [React 시작](#React-시작)
+-   [리액트는 라이브러리인가요 프레임워크인가요](#리액트는-라이브러리인가요-프레임워크인가요)
+-   [리액트를 사용하는 이유](#리액트를-사용하는-이유)
+-   [virtual DOM에 대해서 아나요](#virtual-DOM에-대해서-아나요)
+-   [React에서 함수 컴포넌트와 클래스 컴포넌트의 차이 🔥](#React에서-함수-컴포넌트와-클래스-컴포넌트의-차이)
+-   [리액트에서 함수형 컴포넌트라고 부르지 않고 함수 컴포넌트라고 부르는 이유가 무엇인가요🔥](#리액트에서-함수형-컴포넌트라고-부르지-않고-함수-컴포넌트라고-부르는-이유가-무엇인가요)
+-   [props와 state의 차이🔥](#props와-state의-차이)
+-   [Props가 컴포넌트간에 전달받는 것이라고 했는데 자식에서 부모로도 전달할 수 있는가 🔥](#props가-컴포넌트간에-전달받는-것이라고-했는데-자식에서-부모로도-전달할-수-있는가)
+-   [FLUX에 대해서 아나요? 🔥🔥](#FLUX에-대해서-아나요)
+-   [리덕스에 대해서 아나요? 🔥](#리덕스에-대해서-아나요)
+-   [리덕스의 기본 원칙은? 🔥](#리덕스의-기본-원칙은)
+-   [React에서 state의 불변성을 유지하라는 말이 있는데 이에 대해 설명해달라 🔥](#React에서-state의-불변성을-유지하라는-말이-있는데-이에-대해-설명해달라)
+-   [리듀서 내부에서 불변성을 지키는 이유는? 전개 연산자의 단점을 해결할 수 있는 방법은 무엇인가 🔥](#리듀서-내부에서-불변성을-지키는-이유는?-전개-연산자의-단점을-해결할-수-있는-방법은-무엇인가)
+-   [리액트 사용시에 부수효과로 인해 생기는 문제점이 있다면 🔥](#리액트-사용시에-부수효과로-인해-생기는-문제점이-있다면)
 
-  - 부수 효과를 일으키는 함수 (불순 함수)
-  - 부수 효과를 일으키지 않는 함수 (순수 함수)
-  - 요약
+    -   부수 효과를 일으키는 함수 (불순 함수)
+    -   부수 효과를 일으키지 않는 함수 (순수 함수)
+    -   요약
 
-- [컴포넌트의 라이프 사이클 메서드 🔥](#컴포넌트의-라이프-사이클-메서드)
+-   [컴포넌트의 라이프 사이클 메서드 🔥](#컴포넌트의-라이프-사이클-메서드)
 
-  - 이해
-  - 메서드 종류
+    -   이해
+    -   메서드 종류
 
-- [Hooks의 종류 🔥](#Hooks의-종류)
+-   [Hooks의 종류 🔥](#Hooks의-종류)
 
-  - useState
-  - useEffect
-  - useReducer
-  - useMemo
-  - useCallback
-  - useRef
-  - 커스텀 Hooks
+    -   useState
+    -   useEffect
+    -   useReducer
+    -   useMemo
+    -   useCallback
+    -   useRef
+    -   커스텀 Hooks
 
-- [useCallback을 사용할 때와 사용하지 않고 함수를 선언할 때는 어떤 차이가 있나요?](#useCallback을-사용할-때와-사용하지-않고-함수를-선언할-때는-어떤-차이가-있나요?)
-- [useMemo와 useCallback의 차이를 아나요 🔥](#useMemo와-useCallback의-차이를-아나요)
-- [언제 useState 대신 useRef를 쓸 수 있나요?](#언제-useState-대신-useRef를-쓸-수-있나요?)
+-   [useCallback을 사용할 때와 사용하지 않고 함수를 선언할 때는 어떤 차이가 있나요?](#useCallback을-사용할-때와-사용하지-않고-함수를-선언할-때는-어떤-차이가-있나요?)
+-   [useMemo와 useCallback의 차이를 아나요 🔥](#useMemo와-useCallback의-차이를-아나요)
+-   [언제 useState 대신 useRef를 쓸 수 있나요?](#언제-useState-대신-useRef를-쓸-수-있나요?)
 
-- [리액트에서 setState는 비동기 동작인가요 동기 동작인가요?](#리액트에서-setState는-비동기-동작인가요-동기-동작인가요)
-- [setState가 비동기 동작을 취했을 때 얻을 수 있는 이점은 무엇인가요?](#setState가-비동기-동작을-취했을-때-얻을-수-있는-이점은-무엇인가요)
-- [useLayoutEffect는 무엇인가요?](#useLayoutEffect를-사용해보신-적-있나요)
-- [리액트의 성능개선 방법에 대해서 설명해주세요](#리액트의-성능개선-방법에-대해서-설명해주세요)
+-   [리액트에서 setState는 비동기 동작인가요 동기 동작인가요?](#리액트에서-setState는-비동기-동작인가요-동기-동작인가요)
+-   [setState가 비동기 동작을 취했을 때 얻을 수 있는 이점은 무엇인가요?](#setState가-비동기-동작을-취했을-때-얻을-수-있는-이점은-무엇인가요)
+-   [useLayoutEffect는 무엇인가요?](#useLayoutEffect를-사용해보신-적-있나요)
+-   [리액트의 성능개선 방법에 대해서 설명해주세요](#리액트의-성능개선-방법에-대해서-설명해주세요)
 
-- [컴포넌트에서 이벤트를 실행시키기 위해서는 어떻게 핸들링해야 하나요](#컴포넌트에서-이벤트를-실행시키기-위해서는-어떻게-핸들링해야-하나요)
-- [SPA가 뭔가요](#SPA가-뭔가요)
+-   [컴포넌트에서 이벤트를 실행시키기 위해서는 어떻게 핸들링해야 하나요](#컴포넌트에서-이벤트를-실행시키기-위해서는-어떻게-핸들링해야-하나요)
+-   [SPA가 뭔가요](#SPA가-뭔가요)
 
-  - SPA의 단점
+    -   SPA의 단점
 
-- [SSR이 뭔가요](#SSR이-뭔가요)
-- [SEO가 뭔가요](#SEO가-뭔가요)
+-   [SSR이 뭔가요](#SSR이-뭔가요)
+-   [SEO가 뭔가요](#SEO가-뭔가요)
 
-  - TTV, TTI
+    -   TTV, TTI
 
-- [하이드레이션에 대해 알고 있나요](#하이드레이션에-대해-알고-있나요)
-- [Next의 렌더링 수행 방식](#Next의-렌더링-수행-방식)
-- [Next를 쓴 이유가 있나요](#Next를-쓴-이유가-있나요)
-- [Next를 구성하는 기본 설정 파일에 대해서 알고 있나요?](#Next를-구성하는-기본-설정-파일에-대해서-알고-있나요)
-- [사전 렌더링을 위해 사용해 본 함수가 있나요](#사전-렌더링을-위해-사용해-본-함수가-있나요)
+-   [하이드레이션에 대해 알고 있나요](#하이드레이션에-대해-알고-있나요)
+-   [Next의 렌더링 수행 방식](#Next의-렌더링-수행-방식)
+-   [Next를 쓴 이유가 있나요](#Next를-쓴-이유가-있나요)
+-   [Next를 구성하는 기본 설정 파일에 대해서 알고 있나요?](#Next를-구성하는-기본-설정-파일에-대해서-알고-있나요)
+-   [사전 렌더링을 위해 사용해 본 함수가 있나요](#사전-렌더링을-위해-사용해-본-함수가-있나요)
 
-- [Suspense](#suspense)
+-   [Suspense](#suspense)
 
-- `suspense가 뭔가요?`
-- `suspense로 가능한 것은 어떤 것들이 있나요?`
+-   `suspense가 뭔가요?`
+-   `suspense로 가능한 것은 어떤 것들이 있나요?`
 
-- [웹 성능 최적화](#웹-성능-최적화)
-- [LCP가 뭔가요?](#lcp가-뭔가요)
-- [FCP가 뭔가요?](#fcp가-뭔가요)
+-   [웹 성능 최적화](#웹-성능-최적화)
+-   [LCP가 뭔가요?](#lcp가-뭔가요)
+-   [FCP가 뭔가요?](#fcp가-뭔가요)
 
 <hr>
 
@@ -127,22 +127,22 @@
 
 `2. Virtual DOM으로 인한 충분히 빠른 속도`
 
-- Virtual DOM은 UI의 이상적인 또는 “가상”적인 표현을 메모리에 저장하고 ReactDOM과 같은 라이브러리에 의해 “실제” DOM과 동기화하는 프로그래밍 개념입니다. 이 과정을 재조정이라고 합니다.
-  이 접근방식이 React의 선언적 API를 가능하게 합니다. React에게 원하는 UI의 상태를 알려주면 DOM이 그 상태와 일치하도록 합니다. 이러한 방식은 앱 구축에 사용해야 하는 어트리뷰트 조작, 이벤트 처리, 수동 DOM 업데이트를 추상화합니다.
+-   Virtual DOM은 UI의 이상적인 또는 “가상”적인 표현을 메모리에 저장하고 ReactDOM과 같은 라이브러리에 의해 “실제” DOM과 동기화하는 프로그래밍 개념입니다. 이 과정을 재조정이라고 합니다.
+    이 접근방식이 React의 선언적 API를 가능하게 합니다. React에게 원하는 UI의 상태를 알려주면 DOM이 그 상태와 일치하도록 합니다. 이러한 방식은 앱 구축에 사용해야 하는 어트리뷰트 조작, 이벤트 처리, 수동 DOM 업데이트를 추상화합니다.
 
 <br/>
 
 `3. SPA(싱글 페이지 애플리케이션)`
 
-- 장점 : 서버의 자원을 아낄 수 있다. & 더 좋은 사용자 경험을 누릴 수 있다.
-- 단점 : 사용자와 인터렉션이 많은 경우에는 서버의 자원이 많이 사용되고 불필요한 트레픽이 낭비 될 수 있다.
+-   장점 : 서버의 자원을 아낄 수 있다. & 더 좋은 사용자 경험을 누릴 수 있다.
+-   단점 : 사용자와 인터렉션이 많은 경우에는 서버의 자원이 많이 사용되고 불필요한 트레픽이 낭비 될 수 있다.
 
 **리액트 사용하는 이유는 이러한 장점때문이다**
 
-- component를 사용해서 유지보수가 용이 (필요한 부분의 component만 렌더링 된다. 최적화된 렌더링이 가능)
-- 생태계가 넓고, 다양한 라이브러리 사용 가능
-- virtual DOM을 활용하여 빠른 렌더링이 가능
-- 리액트 네이티브를 활용하여 앱 개발 가능
+-   component를 사용해서 유지보수가 용이 (필요한 부분의 component만 렌더링 된다. 최적화된 렌더링이 가능)
+-   생태계가 넓고, 다양한 라이브러리 사용 가능
+-   virtual DOM을 활용하여 빠른 렌더링이 가능
+-   리액트 네이티브를 활용하여 앱 개발 가능
 
 <br/>
 
@@ -179,17 +179,17 @@ Virtual DOM을 사용한다고 해서 사용하지 않을 때와 비교하여 �
 
 **클래스 컴포넌트**의 경우
 
-- 객체지향 프로그래밍의 구조를 띄고 있으며, state를 초기화하기 위해서는 constructor (생성자) 함수를 필요로 합니다
-- 생성자 함수를 통해 state를 초기화해야 하기 때문에 함수 컴포넌트에 비해서 코드가 길어지고, 사이즈가 커질 수 있습니다.
-- state 기능 및 라이프 사이클 기능을 사용할 수 있으며 임의 메서드를 정의할 수 있다
-- render 함수가 꼭 있어야 하고, 그 안에서 보여 주어야 할 JSX를 반환해야 한다.
+-   객체지향 프로그래밍의 구조를 띄고 있으며, state를 초기화하기 위해서는 constructor (생성자) 함수를 필요로 합니다
+-   생성자 함수를 통해 state를 초기화해야 하기 때문에 함수 컴포넌트에 비해서 코드가 길어지고, 사이즈가 커질 수 있습니다.
+-   state 기능 및 라이프 사이클 기능을 사용할 수 있으며 임의 메서드를 정의할 수 있다
+-   render 함수가 꼭 있어야 하고, 그 안에서 보여 주어야 할 JSX를 반환해야 한다.
 
 **함수 컴포넌트**는 클래스형 컴포넌트보다
 
-- Hooks 를 사용하여 생성자 함수를 통해 state를 초기화하지 않더라도 사용이 가능하다 (`useState()` 등)
-- 선언하기가 좀 더 편하고 메모리 자원을 덜 사용한다는 장점이 있다
-- 제공되는 hook 함수뿐만 아니라 커스텀 훅을 생성하여 동작시킬 수 있다
-- 프로젝트를 완성하여 빌드한 후 배포할 때도 함수 컴포넌트를 사용하는 것이 결과물의 파일 크기가 더 작습니다
+-   Hooks 를 사용하여 생성자 함수를 통해 state를 초기화하지 않더라도 사용이 가능하다 (`useState()` 등)
+-   선언하기가 좀 더 편하고 메모리 자원을 덜 사용한다는 장점이 있다
+-   제공되는 hook 함수뿐만 아니라 커스텀 훅을 생성하여 동작시킬 수 있다
+-   프로젝트를 완성하여 빌드한 후 배포할 때도 함수 컴포넌트를 사용하는 것이 결과물의 파일 크기가 더 작습니다
 
 **함수 컴포넌트**는 state와 라이프사이클 API의 사용이 불가능하다는 점인데, 이를 해결 하기 위해 v16.8 업데이트 이후에 적용된 Hooks를 통해 해결되었습니다.
 
@@ -211,9 +211,9 @@ Virtual DOM을 사용한다고 해서 사용하지 않을 때와 비교하여 �
 
 ### props와 state의 차이
 
-- props : 컴포넌트 속성을 설정할 때 사용하는 요소이다. props값은 해당 컴포넌트를 불러와 사용하는 부모 컴포넌트에서 설정할 수 있습니다.
+-   props : 컴포넌트 속성을 설정할 때 사용하는 요소이다. props값은 해당 컴포넌트를 불러와 사용하는 부모 컴포넌트에서 설정할 수 있습니다.
 
-- state : 컴포넌트 내부에서 바뀔수 있는 값을 의미한다. props는 컴포넌트가 사용되는 과정에서 부모 컴포넌트가 설정하는 값이며, 컴포넌트 자신은 해당 props를 읽기 전용으로만 사용할 수 있습니다. props를 바꾸려면 부모 컴포넌트에서 바꾸어 주어야 합니다.
+-   state : 컴포넌트 내부에서 바뀔수 있는 값을 의미한다. props는 컴포넌트가 사용되는 과정에서 부모 컴포넌트가 설정하는 값이며, 컴포넌트 자신은 해당 props를 읽기 전용으로만 사용할 수 있습니다. props를 바꾸려면 부모 컴포넌트에서 바꾸어 주어야 합니다.
 
 <img src="https://github.com/junh0328/TIL/raw/master/React/images/propsAndState.png" alt="props & state">
 
@@ -226,8 +226,8 @@ Virtual DOM을 사용한다고 해서 사용하지 않을 때와 비교하여 �
 
 2. 자식에서 부모로 데이터를 전송하는 방법 = **함수를 이용**한다.
 
-- 자식은 props를 사용해서 부모에게 데이터를 건네줄 수 없다.
-  따라서 부모가 함수를 넣어 props로 자식에게 넘겨주면, 자식이 데이터를 파라미터로 넣어 호출하는 방식으로 동작한다. 즉, 부모가 props로 함수를 넣어주면 자식이 그 함수를 이용해 값을 건네주는 방식이다.
+-   자식은 props를 사용해서 부모에게 데이터를 건네줄 수 없다.
+    따라서 부모가 함수를 넣어 props로 자식에게 넘겨주면, 자식이 데이터를 파라미터로 넣어 호출하는 방식으로 동작한다. 즉, 부모가 props로 함수를 넣어주면 자식이 그 함수를 이용해 값을 건네주는 방식이다.
 
 <br/>
 
@@ -299,24 +299,24 @@ ctrl + F '부수효과가 있는 배열의 프로토타입 메서드'
 
 ```js
 let A = {
-  name: "junhee",
-  age: 25,
-  job: "student",
+    name: 'junhee',
+    age: 25,
+    job: 'student',
 };
 
 B = { ...A };
 
-console.log("A", A);
-console.log("B", B);
+console.log('A', A);
+console.log('B', B);
 /*
 A { name: 'junhee', age: 25, job: 'student' }
 B { name: 'junhee', age: 25, job: 'student' }
 */
 
-B = { ...A, job: "frontend developer" };
+B = { ...A, job: 'frontend developer' };
 
-console.log("A", A);
-console.log("B", B);
+console.log('A', A);
+console.log('B', B);
 
 /*
 A { name: 'junhee', age: 25, job: 'student' }
@@ -328,10 +328,10 @@ B { name: 'junhee', age: 25, job: 'frontend developer' }
 
 **컴포넌트는 다음과 같은 총 네 가지 경우에 업데이트합니다.**
 
-- props가 바뀔 때
-- state가 바뀔 때
-- 부모 컴포넌트가 리렌더링될 때
-- this.forceUpdate로 강제로 렌더링을 트리거할 때
+-   props가 바뀔 때
+-   state가 바뀔 때
+-   부모 컴포넌트가 리렌더링될 때
+-   this.forceUpdate로 강제로 렌더링을 트리거할 때
 
 리듀서의 initial state에는 서버에서 넘겨받는 정보를 저장하고 전역으로 해당 객체를 사용할 수 있는 저장소 역할을 합니다.
 
@@ -341,18 +341,18 @@ B { name: 'junhee', age: 25, job: 'frontend developer' }
 
 ```jsx
 const nextState = {
-  ...state,
-  posts: state.posts.map((post) =>
-    post.id === 1
-      ? {
-          ...post,
-          comments: post.comments.concat({
-            id: 3,
-            text: "새로운 댓글",
-          }),
-        }
-      : post
-  ),
+    ...state,
+    posts: state.posts.map((post) =>
+        post.id === 1
+            ? {
+                  ...post,
+                  comments: post.comments.concat({
+                      id: 3,
+                      text: '새로운 댓글',
+                  }),
+              }
+            : post
+    ),
 };
 ```
 
@@ -362,11 +362,11 @@ const nextState = {
 
 ```jsx
 const nextState = produce(state, (draft) => {
-  const post = draft.posts.find((post) => post.id === 1);
-  post.comments.push({
-    id: 3,
-    text: "와 정말 쉽다!",
-  });
+    const post = draft.posts.find((post) => post.id === 1);
+    post.comments.push({
+        id: 3,
+        text: '와 정말 쉽다!',
+    });
 });
 ```
 
@@ -423,25 +423,25 @@ const num_arr = [1, 2, 3, 4, 5];
 
 // 매개변수의 값을 직접 변경하는 불순함수
 const addSixImpure = (arr) => {
-  // 매개변수에 직접 6 추가
-  arr.push(6);
-  return arr;
+    // 매개변수에 직접 6 추가
+    arr.push(6);
+    return arr;
 };
 
 // 매개변수를 복사한 값을 변경하는 순수함수
 const addSixPure = (arr) => {
-  // 펼침 연산자로 새로운 배열에 6 추가
-  newArr = [...arr, 6];
-  return newArr;
+    // 펼침 연산자로 새로운 배열에 6 추가
+    newArr = [...arr, 6];
+    return newArr;
 };
 
 // 매개변수 arr에 6이 있는지 확인하는 함수
 const hasSix = (arr) => {
-  if (arr.includes(6)) {
-    return true;
-  } else {
-    return false;
-  }
+    if (arr.includes(6)) {
+        return true;
+    } else {
+        return false;
+    }
 };
 
 const new_arr = addSixImpure(num_arr);
@@ -512,8 +512,8 @@ Array.prototype.includes
 
 라이프사이클 메서드의 종류는 총 아홉 가지입니다.
 
-- will 접두사가 붙은 메서드는 어떤 작업을 작동하기 전에 실행되는 메서드입니다.
-- Did 접두사가 붙은 메서드는 어떤 작업을 작동한 후에 실행되는 메서드입니다.
+-   will 접두사가 붙은 메서드는 어떤 작업을 작동하기 전에 실행되는 메서드입니다.
+-   Did 접두사가 붙은 메서드는 어떤 작업을 작동한 후에 실행되는 메서드입니다.
 
 이 메서드들은 우리가 컴포넌트 클래스에서 덮어 써 선언함으로써 사용할 수 있습니다. 라이프사이클은 총 세 가지, 즉 마운트, 업데이트, 언마운트 카테고리로 나눕니다.
 
@@ -521,9 +521,9 @@ Array.prototype.includes
 
 1. 마운트
 
-- DOM이 생성되고 웹 브라우저상에 나타나는 것을 마운트라고 한다.
+-   DOM이 생성되고 웹 브라우저상에 나타나는 것을 마운트라고 한다.
 
-- componentDidMount : 컴포넌트가 웹 브라우저상에 나타난 후 호출하는 메서드이다.
+-   componentDidMount : 컴포넌트가 웹 브라우저상에 나타난 후 호출하는 메서드이다.
 
 <br/>
 
@@ -531,20 +531,20 @@ Array.prototype.includes
 
 **컴포넌트는 다음과 같은 총 네 가지 경우에 업데이트합니다.**
 
-- Props가 바뀔 때
-- state가 바뀔 때
-- 부모 컴포넌트가 리렌더링될 때
-- this.forceUpdate로 강제로 렌더링을 트리거할 때
+-   Props가 바뀔 때
+-   state가 바뀔 때
+-   부모 컴포넌트가 리렌더링될 때
+-   this.forceUpdate로 강제로 렌더링을 트리거할 때
 
-- componentDidUpdate : 컴포넌트의 업데이트(리렌더링) 작업이 끝난 후 호출하는 메서드입니다.
+-   componentDidUpdate : 컴포넌트의 업데이트(리렌더링) 작업이 끝난 후 호출하는 메서드입니다.
 
 <br/>
 
 3. 언마운트
 
-- 마운트의 반대 과정, 즉 컴포넌트를 DOM에서 제거하는 것을 말한다.
+-   마운트의 반대 과정, 즉 컴포넌트를 DOM에서 제거하는 것을 말한다.
 
-- componentWillUnmount : 컴포넌트가 웹 브라우저사에서 사라지기 전에 호출하는 메서드이다.
+-   componentWillUnmount : 컴포넌트가 웹 브라우저사에서 사라지기 전에 호출하는 메서드이다.
 
 <img src="https://github.com/junh0328/TIL/raw/master/React/images/lifeCycleFlow.png" alt="라이프사이클 메서드">
 
@@ -556,11 +556,11 @@ Array.prototype.includes
 
 1. useState
 
-- 가장 기본적인 Hook이다. 첫 번째 원소는 상태 값, 두 번째 원소는 상태를 설정하는 함수이다.
-- 이 함수에 파라미터를 넣어서 호출하면 전달받은 파라미터로 값이 바뀌고 컴포넌트가 정상적으로 리렌더링 됩니다
+-   가장 기본적인 Hook이다. 첫 번째 원소는 상태 값, 두 번째 원소는 상태를 설정하는 함수이다.
+-   이 함수에 파라미터를 넣어서 호출하면 전달받은 파라미터로 값이 바뀌고 컴포넌트가 정상적으로 리렌더링 됩니다
 
 ```jsx
-import { useState } from "react";
+import { useState } from 'react';
 
 const [value, setValue] = useState(0);
 ```
@@ -569,13 +569,13 @@ const [value, setValue] = useState(0);
 
 2. useEffect
 
-- 리액트 컴포넌트가 렌더링될 때마다 특정 작업을 수행하도록 설정할 수 있는 Hook 입니다. 클래스형 컴포넌트의 componontDidMount와 componentDidUpdate를 합친 형태로 보아도 무방합니다
+-   리액트 컴포넌트가 렌더링될 때마다 특정 작업을 수행하도록 설정할 수 있는 Hook 입니다. 클래스형 컴포넌트의 componontDidMount와 componentDidUpdate를 합친 형태로 보아도 무방합니다
 
 `마운트만 실행시키고 싶을 경우` : 두 번째 파라미터로 비어있는 배열을 넣어주면 된다
 
 ```jsx
 useEffect(() => {
-  console.log("마운트될 때만 실행됩니다.");
+    console.log('마운트될 때만 실행됩니다.');
 }, []);
 ```
 
@@ -583,13 +583,13 @@ useEffect(() => {
 
 ```jsx
 useEffect(() => {
-  console.log(name);
+    console.log(name);
 }, [name]);
 ```
 
 `뒷 정리 하기`:
 
-- 정리 : useEffect는 기본적으로 렌더링되고 난 직후마다 실행되며 두 번째 파라미터 배열에 무엇을 넣는지에 따라 실행되는 조건이 달라집니다
+-   정리 : useEffect는 기본적으로 렌더링되고 난 직후마다 실행되며 두 번째 파라미터 배열에 무엇을 넣는지에 따라 실행되는 조건이 달라집니다
 
 useEffect는 기본적으로 렌더링되고 난 직후마다 실행되며, 두 번째 파라미터 배열에 무엇을 넣는지에 따라 실행되는 조건이 달라집니다.
 
@@ -614,7 +614,7 @@ useEffect(() => {
 
 3. useReducer
 
-- useReducer는 useState보다 더 다양한 컴포넌트 상황에 따라 다양한 상태를 다른 값으로 업데이트해 주고 싶을 때 사용하는 Hook입니다. 리듀서는 현재 상태, 그리고 업데이트를 위해 필요한 정보를 담은 액션 값을 전달받아 새로운 상태에 반환하는 함수입니다. 리듀서 함수에서 새로운 상태를 만들 때는 반드시 불변성을 지켜주어야 합니다.
+-   useReducer는 useState보다 더 다양한 컴포넌트 상황에 따라 다양한 상태를 다른 값으로 업데이트해 주고 싶을 때 사용하는 Hook입니다. 리듀서는 현재 상태, 그리고 업데이트를 위해 필요한 정보를 담은 액션 값을 전달받아 새로운 상태에 반환하는 함수입니다. 리듀서 함수에서 새로운 상태를 만들 때는 반드시 불변성을 지켜주어야 합니다.
 
 <br/>
 
@@ -632,50 +632,50 @@ useMemo Hook을 사용하면 이러한 작업을 최적화할 수 있습니다. 
 <summary>코드 보기</summary>
 
 ```jsx
-import React, { useCallback, useMemo, useRef, useState } from "react";
+import React, { useCallback, useMemo, useRef, useState } from 'react';
 
 const getAverage = (numbers) => {
-  console.log("평균값 계산 중..");
-  if (numbers.length === 0) return 0;
-  const sum = numbers.reduce((a, b) => a + b);
-  return sum / numbers.length;
+    console.log('평균값 계산 중..');
+    if (numbers.length === 0) return 0;
+    const sum = numbers.reduce((a, b) => a + b);
+    return sum / numbers.length;
 };
 
 const Average = () => {
-  const [list, setList] = useState([]);
-  const [number, setNumber] = useState("");
-  const inputEl = useRef();
+    const [list, setList] = useState([]);
+    const [number, setNumber] = useState('');
+    const inputEl = useRef();
 
-  const onChange = useCallback((e) => {
-    setNumber(e.target.value);
-  }, []); // 컴포넌트가 처음 렌더링될 때만 함수 생성
+    const onChange = useCallback((e) => {
+        setNumber(e.target.value);
+    }, []); // 컴포넌트가 처음 렌더링될 때만 함수 생성
 
-  const onInsert = useCallback(
-    (e) => {
-      const nextList = list.concat(parseInt(number));
-      setList(nextList);
-      setNumber("");
-      inputEl.current.focus();
-    },
-    [number, list] // number 혹은 list가 바뀌었을 때만 함수 생성
-  );
+    const onInsert = useCallback(
+        (e) => {
+            const nextList = list.concat(parseInt(number));
+            setList(nextList);
+            setNumber('');
+            inputEl.current.focus();
+        },
+        [number, list] // number 혹은 list가 바뀌었을 때만 함수 생성
+    );
 
-  const avg = useMemo(() => getAverage(list), [list]);
+    const avg = useMemo(() => getAverage(list), [list]);
 
-  return (
-    <div>
-      <input value={number} onChange={onChange} ref={inputEl} />
-      <button onClick={onInsert}>등록</button>
-      <ul>
-        {list.map((value, index) => (
-          <li key={index}>{value}</li>
-        ))}
-      </ul>
-      <div>
-        <b>평균값:</b> {avg}
-      </div>
-    </div>
-  );
+    return (
+        <div>
+            <input value={number} onChange={onChange} ref={inputEl} />
+            <button onClick={onInsert}>등록</button>
+            <ul>
+                {list.map((value, index) => (
+                    <li key={index}>{value}</li>
+                ))}
+            </ul>
+            <div>
+                <b>평균값:</b> {avg}
+            </div>
+        </div>
+    );
 };
 
 export default Average;
@@ -687,7 +687,7 @@ export default Average;
 
 5. useCallback
 
-- useMemo와 상당히 비슷한 함수이다. 주로 렌더링 성능을 최적화 해야하는 상황에서 사용한다. 이 Hook을 사용하면 **만들어놨던 함수를 재사용할 수 있다.** useCallback의 첫 번째 파라미터에는 생성하고 싶은 함수를 넣고, 두 번째 파라미터에는 배열을 넣으면 된다. 이 배열에는 어떤 값이 바뀌었을 때 함수를 새로 생성해야 하는지 명시해야 한다.
+-   useMemo와 상당히 비슷한 함수이다. 주로 렌더링 성능을 최적화 해야하는 상황에서 사용한다. 이 Hook을 사용하면 **만들어놨던 함수를 재사용할 수 있다.** useCallback의 첫 번째 파라미터에는 생성하고 싶은 함수를 넣고, 두 번째 파라미터에는 배열을 넣으면 된다. 이 배열에는 어떤 값이 바뀌었을 때 함수를 새로 생성해야 하는지 명시해야 한다.
 
 <details>
 
@@ -723,14 +723,14 @@ onChange처럼 비어 있는 배열을 넣게 되면 컴포넌트가 렌더링�
 
 ```jsx
 useCallback(() => {
-  console.log("hello world!");
+    console.log('hello world!');
 }, []);
 
 useMemo(() => {
-  const fn = () => {
-    console.log("hello world!");
-  };
-  return fn;
+    const fn = () => {
+        console.log('hello world!');
+    };
+    return fn;
 }, []);
 ```
 
@@ -738,27 +738,27 @@ useMemo(() => {
 
 6. useRef
 
-- 바닐라 자바스크립트에서 DOM 요소를 조작하기 위해 querySelector나 getElementById 등을 사용했다면, 리액트에서는 useRef 훅 함수를 사용합니다.
-- useRef는 `.current` 프로퍼티에 변경가능한 값을 담고있는 객체입니다
-- `.current`프로퍼티를 변경하더라도 리렌더링을 유발하지 않습니다. ref 객체 안의 값은 리액트 생명주기에 독립적이기 때문입니다
+-   바닐라 자바스크립트에서 DOM 요소를 조작하기 위해 querySelector나 getElementById 등을 사용했다면, 리액트에서는 useRef 훅 함수를 사용합니다.
+-   useRef는 `.current` 프로퍼티에 변경가능한 값을 담고있는 객체입니다
+-   `.current`프로퍼티를 변경하더라도 리렌더링을 유발하지 않습니다. ref 객체 안의 값은 리액트 생명주기에 독립적이기 때문입니다
 
 ```jsx
-import React, { useRef, Component } from "react";
+import React, { useRef, Component } from 'react';
 
 class RefSample extends Component {
-  input = useRef();
+    input = useRef();
 
-  handleFocus = () => {
-    this.input.current.focus();
-  };
+    handleFocus = () => {
+        this.input.current.focus();
+    };
 
-  render() {
-    return (
-      <div>
-        <input ref={input} />
-      </div>
-    );
-  }
+    render() {
+        return (
+            <div>
+                <input ref={input} />
+            </div>
+        );
+    }
 }
 
 export default RefSample;
@@ -768,8 +768,8 @@ export default RefSample;
 
 ### useMemo와 useCallback의 차이를 아나요
 
-- useMemo 함수는 메모이제이션된 `값`을 반환한다
-- useCallback 함수는 메모이제이션 된 `함수`를 반환한다
+-   useMemo 함수는 메모이제이션된 `값`을 반환한다
+-   useCallback 함수는 메모이제이션 된 `함수`를 반환한다
 
 ```
 Memoization(메모이제이션)
@@ -780,9 +780,9 @@ Memoization(메모이제이션)
 
 리액트에서 사용하는 컴포넌트는 다음과 같은 경우에 리렌더링됩니다
 
-- props가 바뀔 때
-- state가 바뀔 때
-- 부모 컴포넌트가 리렌더링될 때
+-   props가 바뀔 때
+-   state가 바뀔 때
+-   부모 컴포넌트가 리렌더링될 때
 
 컴포넌트는 state와 부모로부터 전달받은 props 등 다양한 조건에 의해 쉽게 리렌더링이 될 수 있습니다.
 
@@ -798,12 +798,12 @@ const avg = useMemo(() => getAverage(list), [list]); // list 라는 값이 변�
 
 // useCallback
 const onInsert = useCallback(
-  (e) => {
-    const nextList = list.concat(parseInt(number));
-    setList(nextList);
-    setNumber("");
-  },
-  [number, list] // number 혹은 list가 바뀌었을 때만 onInsert 함수 생성
+    (e) => {
+        const nextList = list.concat(parseInt(number));
+        setList(nextList);
+        setNumber('');
+    },
+    [number, list] // number 혹은 list가 바뀌었을 때만 onInsert 함수 생성
 );
 ```
 
@@ -811,7 +811,7 @@ const onInsert = useCallback(
 // useMemo
 
 <div>
-  <b>평균값:</b> {avg}
+    <b>평균값:</b> {avg}
 </div>
 ```
 
@@ -895,11 +895,11 @@ React는 앞서 언급했듯 state, props 값에 따라 re-rendering이 일어�
 
 ```jsx
 const onClickButton = () => {
-  console.log("before", count); // ----> 동기함수
+    console.log('before', count); // ----> 동기함수
 
-  setCount(count + 1); // ---->  비동기함수
+    setCount(count + 1); // ---->  비동기함수
 
-  console.log("after", count); // ---->  동기함수
+    console.log('after', count); // ---->  동기함수
 };
 ```
 
@@ -930,22 +930,22 @@ setState가 동기적으로 실행된다면, 한 컴포넌트 내부에 존재�
 ```jsx
 // 코드 참고: https://merrily-code.tistory.com/46
 
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 
 function App() {
-  const [age, setAge] = useState(0);
-  const [name, setName] = useState("");
+    const [age, setAge] = useState(0);
+    const [name, setName] = useState('');
 
-  useEffect(() => {
-    setAge(25);
-    setName("찬민");
-  }, []);
+    useEffect(() => {
+        setAge(25);
+        setName('찬민');
+    }, []);
 
-  return (
-    <>
-      <div className="App">{`그의 이름은 ${name} 이며, 나이는 ${age}살 입니다.`}</div>
-    </>
-  );
+    return (
+        <>
+            <div className="App">{`그의 이름은 ${name} 이며, 나이는 ${age}살 입니다.`}</div>
+        </>
+    );
 }
 
 export default App;
@@ -966,22 +966,22 @@ export default App;
 ```jsx
 // 코드 참고: https://merrily-code.tistory.com/46
 
-import { useLayoutEffect, useState } from "react";
+import { useLayoutEffect, useState } from 'react';
 
 function App() {
-  const [age, setAge] = useState(0);
-  const [name, setName] = useState("");
+    const [age, setAge] = useState(0);
+    const [name, setName] = useState('');
 
-  useLayoutEffect(() => {
-    setAge(25);
-    setName("찬민");
-  }, []);
+    useLayoutEffect(() => {
+        setAge(25);
+        setName('찬민');
+    }, []);
 
-  return (
-    <>
-      <div className="App">{`그의 이름은 ${name} 이며, 나이는 ${age}살 입니다.`}</div>
-    </>
-  );
+    return (
+        <>
+            <div className="App">{`그의 이름은 ${name} 이며, 나이는 ${age}살 입니다.`}</div>
+        </>
+    );
 }
 
 export default App;
@@ -995,8 +995,8 @@ export default App;
 
 제가 사용해 본 성능 개선 방법은 다음과 같습니다.
 
-- hook 함수 사용 (useMemo, useCallback)
-- 코드 스플리팅 (react.lazy(), Next.js 프레임워크 사용 등)
+-   hook 함수 사용 (useMemo, useCallback)
+-   코드 스플리팅 (react.lazy(), Next.js 프레임워크 사용 등)
 
 <br/>
 
@@ -1107,15 +1107,15 @@ hydration = 수화 = 우리 몸에 수분을 보충하는 행위
 
 이 hydrate 단계에서,
 
-- 렌더링한 결과물이 어떤 컴포넌트인지 확인한다
-- 각 컴포넌트에 걸린 이벤트 들을 실제 DOM에 걸어주는 동작을 하게 된다
+-   렌더링한 결과물이 어떤 컴포넌트인지 확인한다
+-   각 컴포넌트에 걸린 이벤트 들을 실제 DOM에 걸어주는 동작을 하게 된다
 
 하이드레이션이 잘못되었을 때, 우리가 마주하는 문제들은 거의 1번 과정이 잘못되어서 일어난다.
 
 Next.JS에서 내부적으로 사용하는 ReactDOM.hydrate 함수는 다음과 같은 일을 한다.
 
-- 서버에서 받아온 DOM tree와 자체적으로 렌더링한 tree를 비교한다
-- 두 tree 사이의 차이(diff, diffrence)를 얻어낸 뒤, 자체적으로(클라이언트사이드) 렌더링 한 tree에 맞춰 patch를 적용한다
+-   서버에서 받아온 DOM tree와 자체적으로 렌더링한 tree를 비교한다
+-   두 tree 사이의 차이(diff, diffrence)를 얻어낸 뒤, 자체적으로(클라이언트사이드) 렌더링 한 tree에 맞춰 patch를 적용한다
 
 `hydration이 되어야 진짜 리액트 컴포넌트`
 
@@ -1145,33 +1145,33 @@ Next.JS에서 내부적으로 사용하는 ReactDOM.hydrate 함수는 다음과 
 
 `1. 사전 렌더링 및 서버 사이드 렌더링`
 
-- 서버 사이드 렌더링 기능을 제공하여 클라이언트 사이드 렌더링 환경보다 빠른 렌더링을 불러올 수 있습니다.
+-   서버 사이드 렌더링 기능을 제공하여 클라이언트 사이드 렌더링 환경보다 빠른 렌더링을 불러올 수 있습니다.
 
 `2. Hot Code Reloading을 지원`
 
-- Next 개발 환경에서는 코드 변경 사항이 저장되면 응용 프로그램을 자동으로 다시 로드합니다.
+-   Next 개발 환경에서는 코드 변경 사항이 저장되면 응용 프로그램을 자동으로 다시 로드합니다.
 
 `3. 자동 코드 분할`
 
-- 자동 코드 분할 기능 덕분에 코드의 모든 가져오기가 번들로 묶여 각 페이지와 함께 제공됩니다. 결과적으로, 불필요한 코드가 페이지에 로드되지 않게 됩니다.
+-   자동 코드 분할 기능 덕분에 코드의 모든 가져오기가 번들로 묶여 각 페이지와 함께 제공됩니다. 결과적으로, 불필요한 코드가 페이지에 로드되지 않게 됩니다.
 
 `4. 설정이 필요없음`
 
-- 넥스트는 기본적으로 웹팩과 바벨을 사용하고 있습니다. 이미 서버 사이드 렌더링 및 개발에 필요한 설정이 되어 있으므로 빠르게 개발을 시작할 수 있습니다.
+-   넥스트는 기본적으로 웹팩과 바벨을 사용하고 있습니다. 이미 서버 사이드 렌더링 및 개발에 필요한 설정이 되어 있으므로 빠르게 개발을 시작할 수 있습니다.
 
-- 사용하고 싶은 플러그인이 있다면 손쉽게 추가하여 사용할 수 있도록 지원을 하고 있습니다.
+-   사용하고 싶은 플러그인이 있다면 손쉽게 추가하여 사용할 수 있도록 지원을 하고 있습니다.
 
 `5. 타입스크립트가 내장됨`
 
 `6. 파일기반 내비게이션 기능`
 
-- 리액트에서는 라우트를 위해서 'react-router'라는 라이브러리를 사용하여 라우팅 설정을 해주어야 합니다.
+-   리액트에서는 라우트를 위해서 'react-router'라는 라이브러리를 사용하여 라우팅 설정을 해주어야 합니다.
 
-- 그로 인해 페이지의 경로에 대하여 직접 설정을 해주어야 하였습니다.
+-   그로 인해 페이지의 경로에 대하여 직접 설정을 해주어야 하였습니다.
 
-- 하지만 넥스트는 파일 시스템 기반 라우팅을 사용합니다.
+-   하지만 넥스트는 파일 시스템 기반 라우팅을 사용합니다.
 
-- 폴더의 경로에 따라 페이지의 경로가 설정되어 구축이 빠르고 관리가 편리하다는 장점이 있습니다.
+-   폴더의 경로에 따라 페이지의 경로가 설정되어 구축이 빠르고 관리가 편리하다는 장점이 있습니다.
 
 <br/>
 
@@ -1179,10 +1179,10 @@ Next.JS에서 내부적으로 사용하는 ReactDOM.hydrate 함수는 다음과 
 
 📁 pages 폴더 안에는 넥스트에서 중요한 역할을 하는 특별한 파일들이 있습니다.
 
-- 📙_app.jsx (tsx)
-- 📙_document.jsx (tsx)
-- 📙_error.jsx (tsx)
-- 📙404.jsx (tsx)
+-   📙_app.jsx (tsx)
+-   📙_document.jsx (tsx)
+-   📙_error.jsx (tsx)
+-   📙404.jsx (tsx)
 
 `📙_app.jsx`
 
@@ -1190,10 +1190,10 @@ App 컴포넌트는 모든 페이지의 공통 페이지 역할을 합니다.
 
 App 컴포넌트를 이용하여 모든 페이지들을 초기화하여 다음과 같은 역할을 할 수 있습니다.
 
-- 페이지들의 공통된 레이아웃
-- 페이지를 탐색할 때 상태 유지
-- 추가 데이터를 페이지에 주입
-- 글로벌 CSS 추가
+-   페이지들의 공통된 레이아웃
+-   페이지를 탐색할 때 상태 유지
+-   추가 데이터를 페이지에 주입
+-   글로벌 CSS 추가
 
 <details>
 
@@ -1307,42 +1307,42 @@ export default Error;
 
 [참고자료](https://velog.io/@devstone/Next.js-100-%ED%99%9C%EC%9A%A9%ED%95%98%EA%B8%B0-feat.-initialProps-webpack-storybook)
 
-- getInitialProps
-- getStaticProps
-- getStaticPath
-- getServerSideProps
+-   getInitialProps
+-   getStaticProps
+-   getStaticPath
+-   getServerSideProps
 
 `getInitialProps`
 
 Next 9.3 버전 이전엔 getInitialProps만으로 사전 렌더링 관련 문제를 전부 해결했지만, 9.3버전부터는 getInitialProps가 3가지로 분리되었습니다
 
-- getStaticProps
-- getStaticPath
-- getServerSideProps
+-   getStaticProps
+-   getStaticPath
+-   getServerSideProps
 
 `getStaticProps`
 
-- 빌드시 고정되는 값으로 빌드 이후에는 수정이 불가능합니다
-- data를 빌드 시에 미리 땡겨와 정적으로(static 하게) 제공합니다
-- 매 유저의 요청마다 fetch할 필요가 없는 데이터를 가진 페이지를 렌더링할 때 유리합니다
-- 유저에 구애받지 않고 퍼블릭하게 캐시할 수 있는 데이터
-- SEO 등의 이슈로 인해 빠르게 미리 렌더링해야만 하는 페이지
+-   빌드시 고정되는 값으로 빌드 이후에는 수정이 불가능합니다
+-   data를 빌드 시에 미리 땡겨와 정적으로(static 하게) 제공합니다
+-   매 유저의 요청마다 fetch할 필요가 없는 데이터를 가진 페이지를 렌더링할 때 유리합니다
+-   유저에 구애받지 않고 퍼블릭하게 캐시할 수 있는 데이터
+-   SEO 등의 이슈로 인해 빠르게 미리 렌더링해야만 하는 페이지
 
 `getStaticPath`
 
-- 동적 라우팅 + getStaticProps를 원할 때 사용
-- 정의하지 않은 하위 경로는 접근해도 화면이 뜨지 않는다 (error 페이지로 라우팅)
-- 동적 라우팅 시, 라우팅되는 경우의 수를 하나하나 넣어야 합니다
+-   동적 라우팅 + getStaticProps를 원할 때 사용
+-   정의하지 않은 하위 경로는 접근해도 화면이 뜨지 않는다 (error 페이지로 라우팅)
+-   동적 라우팅 시, 라우팅되는 경우의 수를 하나하나 넣어야 합니다
 
 `getServerSideProps`
 
-- 빌드와 상관없이, 매 페이지 요청마다 데이터를 서버로부터 가져옵니다
+-   빌드와 상관없이, 매 페이지 요청마다 데이터를 서버로부터 가져옵니다
 
 ## Suspense
 
 [참고, 리액트 코리아 - suspense](https://ko.reactjs.org/docs/concurrent-mode-suspense.html#what-is-suspense-exactly)
 
-- `suspense가 뭔가요?`
+-   `suspense가 뭔가요?`
 
 suspense는 데이터 불러오기를 위한 라이브러리가 아닙니다.
 
@@ -1359,38 +1359,38 @@ suspense는 '**컴포넌트가 읽어들이고 있는 데이터가 아직 준비
 const resource = fetchProfileData();
 
 function ProfilePage() {
-  return (
-    <Suspense fallback={<h1>Loading profile...</h1>}>
-      <ProfileDetails />
-      <Suspense fallback={<h1>Loading posts...</h1>}>
-        <ProfileTimeline />
-      </Suspense>
-    </Suspense>
-  );
+    return (
+        <Suspense fallback={<h1>Loading profile...</h1>}>
+            <ProfileDetails />
+            <Suspense fallback={<h1>Loading posts...</h1>}>
+                <ProfileTimeline />
+            </Suspense>
+        </Suspense>
+    );
 }
 
 function ProfileDetails() {
-  // 아직 로딩이 완료되지 않았더라도, 사용자 정보 읽기를 시도합니다
-  const user = resource.user.read();
-  return <h1>{user.name}</h1>;
+    // 아직 로딩이 완료되지 않았더라도, 사용자 정보 읽기를 시도합니다
+    const user = resource.user.read();
+    return <h1>{user.name}</h1>;
 }
 
 function ProfileTimeline() {
-  // 아직 로딩이 완료되지 않았더라도, 게시글 읽기를 시도합니다
-  const posts = resource.posts.read();
-  return (
-    <ul>
-      {posts.map((post) => (
-        <li key={post.id}>{post.text}</li>
-      ))}
-    </ul>
-  );
+    // 아직 로딩이 완료되지 않았더라도, 게시글 읽기를 시도합니다
+    const posts = resource.posts.read();
+    return (
+        <ul>
+            {posts.map((post) => (
+                <li key={post.id}>{post.text}</li>
+            ))}
+        </ul>
+    );
 }
 ```
 
 </details>
 
-- `suspense로 가능한 것은 어떤 것들이 있나요?`
+-   `suspense로 가능한 것은 어떤 것들이 있나요?`
 
 1. 데이터 불러오기 라이브러리들(axios, SWR, react-query)이 React와 깊게 결합할 수 있도록 해줍니다
 
@@ -1417,3 +1417,7 @@ FCP(First Contentful Paint)는 브라우저가 웹 페이지의 첫 번째 콘�
 FCP는 웹 페이지의 로딩 속도에 대한 사용자의 인식을 반영하고 웹 페이지에 대한 사용자의 참여에 영향을 미칠 수 있기 때문에 중요한 지표입니다.
 
 FCP를 개선하기 위해 HTML, CSS 및 JavaScript 파일의 크기를 줄이고 서버에 대한 요청 수를 최소화하여 웹 페이지 로드를 최적화할 수 있습니다. 또한 로드 프로세스에서 우선 순위를 지정하여 위의 내용과 같은 중요한 리소스의 로드를 최적화할 수 있습니다.
+
+### 컴포넌트의 리렌더링 조건 4가지에 대해 설명해주세요.
+
+컴포넌트는 상태(state)가 변경될 때, 프로퍼티(props)가 변경될 때, 부모 컴포넌트가 리렌더링될 때, 강제로 리렌더링을 트리거할 때 리렌더링됩니다. 이는 컴포넌트가 새로운 데이터로 화면을 갱신해야 할 때 발생합니다.

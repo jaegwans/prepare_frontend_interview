@@ -6,85 +6,85 @@
 
 ## HTML 목차
 
-- [DOCTYPE 🔥](#DOCTYPE)
+-   [DOCTYPE 🔥](#DOCTYPE)
 
-  - DOCTYPE에 대하여 설명하시오
-  - meta 태그에 대해서 알고 있나요?
-  - meta 태그의 요소에 대해서 아는대로 말해보세요
+    -   DOCTYPE에 대하여 설명하시오
+    -   meta 태그에 대해서 알고 있나요?
+    -   meta 태그의 요소에 대해서 아는대로 말해보세요
 
-- [웹 표준 및 웹 접근성 🔥](#웹-표준-및-웹-접근성)
+-   [웹 표준 및 웹 접근성 🔥](#웹-표준-및-웹-접근성)
 
-  - 웹 표준이란?
-  - HTML5에서 추가된 내용이 있나요?
-  - 웹 접근성이란?
-  - 웹 접근성에 맞는 마크업 예시 몇가지 말해보시오
-  - 시멘틱 태그란 무엇인가 왜 사용하는가
-  - 텍스트 관련 태그
-  - SEO란 무엇인가?
-  - Button 태그의 Default type은 무엇인가?
-  - Section 태그와 article 태그의 차이점
-  - 크로스 브라우징이란 무엇인가요?
+    -   웹 표준이란?
+    -   HTML5에서 추가된 내용이 있나요?
+    -   웹 접근성이란?
+    -   웹 접근성에 맞는 마크업 예시 몇가지 말해보시오
+    -   시멘틱 태그란 무엇인가 왜 사용하는가
+    -   텍스트 관련 태그
+    -   SEO란 무엇인가?
+    -   Button 태그의 Default type은 무엇인가?
+    -   Section 태그와 article 태그의 차이점
+    -   크로스 브라우징이란 무엇인가요?
 
-- [그 외 🔥](#그-외)
+-   [그 외 🔥](#그-외)
 
-  - 이미지 크기가 클 경우 렌더링 속도가 느려질텐데 이를 개선하기 위한 방법
-  - UI란 무엇인지 설명하시오
-  - 이미지 태그에 src 속성을 사용하는 이유는 무엇인가?
-  - 왜 일반적으로 CSS `<link>`를 head 태그 사이에 위치시키고, JS `<script>` 태그를 body 직전에 위치시키는 것이 좋은 방법인지 설명하시오
-  - `data-속성` 은 무엇에 좋은지 설명하시오
+    -   이미지 크기가 클 경우 렌더링 속도가 느려질텐데 이를 개선하기 위한 방법
+    -   UI란 무엇인지 설명하시오
+    -   이미지 태그에 src 속성을 사용하는 이유는 무엇인가?
+    -   왜 일반적으로 CSS `<link>`를 head 태그 사이에 위치시키고, JS `<script>` 태그를 body 직전에 위치시키는 것이 좋은 방법인지 설명하시오
+    -   `data-속성` 은 무엇에 좋은지 설명하시오
 
-- [SVG란?🔥](#SVG란)
+-   [SVG란?🔥](#SVG란)
 
-  - SVG 장점과 단점
-  - SVG 내부 도형에 대해 아는게 있나요?
+    -   SVG 장점과 단점
+    -   SVG 내부 도형에 대해 아는게 있나요?
 
 ## CSS 목차
 
-- [display 🔥](#display)
+-   [display 🔥](#display)
 
-  - block 이란?
-  - inline 이란?
-  - inline-block 이란?
-  - none 이란?
+    -   block 이란?
+    -   inline 이란?
+    -   inline-block 이란?
+    -   none 이란?
 
-- [position 속성에 대하여 🔥](#position-속성에-대하여)
+-   [position 속성에 대하여 🔥](#position-속성에-대하여)
 
-  - static
-  - relative
-  - fixed
-  - absolute
+    -   static
+    -   relative
+    -   fixed
+    -   absolute
 
-- [float가 어떻게 작동하는가🔥](#float가-어떻게-작동하는가)
+-   [float가 어떻게 작동하는가🔥](#float가-어떻게-작동하는가)
 
-- [Flexbox나 Grid 각각의 특징🔥](#Flexbox나-Grid-각각의-특징)
+-   [Flexbox나 Grid 각각의 특징🔥](#Flexbox나-Grid-각각의-특징)
 
-  - flex 를 사용하는 이유가 무엇인가요?
-  - Grid를 사용하는 이유가 무엇인가요?
+    -   flex 를 사용하는 이유가 무엇인가요?
+    -   Grid를 사용하는 이유가 무엇인가요?
 
-- [이미지 태그를 스타일로 대체하는 법 🔥](#이미지-태그를-스타일로-대체하는-법)
+-   [이미지 태그를 스타일로 대체하는 법 🔥](#이미지-태그를-스타일로-대체하는-법)
 
-- [반응형 웹의 3요소 🔥](#반응형-웹의-3요소)
+-   [반응형 웹의 3요소 🔥](#반응형-웹의-3요소)
 
-- [CSS selector가 어떠한 원리로 동작하나요? 🔥](#CSS-selector가-어떠한-원리로-동작하나요?)
+-   [CSS selector가 어떠한 원리로 동작하나요? 🔥](#CSS-selector가-어떠한-원리로-동작하나요?)
 
-- [반응형웹과 적응형웹에 설명하시오 🔥](#반응형웹과-적응형웹에-설명하시오)
+-   [반응형웹과 적응형웹에 설명하시오 🔥](#반응형웹과-적응형웹에-설명하시오)
 
-  - 반응형 웹이란?
-  - 적응형 웹이란?
+    -   반응형 웹이란?
+    -   적응형 웹이란?
 
-- [PX, EM에 대해 설명하시오 🔥](#PX,-EM에-대해-설명하시오)
+-   [PX, EM에 대해 설명하시오 🔥](#PX,-EM에-대해-설명하시오)
 
-- [CSS 적용 우선순위 🔥](#CSS-적용-우선순위)
+-   [CSS 적용 우선순위 🔥](#CSS-적용-우선순위)
 
-- [CSS-in-JS에 대해서 설명해 주세요 🔥](#CSS-in-JS에-대해서-설명해-주세요)
+-   [CSS-in-JS에 대해서 설명해 주세요 🔥](#CSS-in-JS에-대해서-설명해-주세요)
 
-- [CSS 전처리기를 사용해보셨나요? 🔥](#CSS-전처리기를-사용해보셨나요)
+-   [CSS 전처리기를 사용해보셨나요? 🔥](#CSS-전처리기를-사용해보셨나요)
 
-  - 사용해봤다면 장점과 단점
+    -   사용해봤다면 장점과 단점
 
-- [padding과 margin의 차이가 무엇인가요? 🔥](#padding과-margin의-차이가-무엇인가요)
-  - padding에 대하여
-  - margin에 대하여
+-   [padding과 margin의 차이가 무엇인가요? 🔥](#padding과-margin의-차이가-무엇인가요)
+    -   padding에 대하여
+    -   margin에 대하여
 
 ## 🎈 HTML
 
@@ -131,8 +131,8 @@ HTML 문서가 어떤 내용을 담고 있고, 키워드는 무엇이며, 누가
 <meta name="author" content="Chris Mills" />
 
 <meta
-  name="description"
-  content="The MDN Web Docs site provides information about Open Web technologies including HTML, CSS, and APIs for both Web sites and progressive web apps."
+    name="description"
+    content="The MDN Web Docs site provides information about Open Web technologies including HTML, CSS, and APIs for both Web sites and progressive web apps."
 />
 ```
 
@@ -181,12 +181,12 @@ HTML 문서가 어떤 내용을 담고 있고, 키워드는 무엇이며, 누가
 
 ```html
 <head>
-  <meta charset="UTF-8" />
-  <meta name="keyword" content="HTML, meta, tag, element, reference" />
-  <meta name="description" content="HTML meta tag page" />
-  <meta name="author" content="TCPSchool" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>HTML meta tag</title>
+    <meta charset="UTF-8" />
+    <meta name="keyword" content="HTML, meta, tag, element, reference" />
+    <meta name="description" content="HTML meta tag page" />
+    <meta name="author" content="TCPSchool" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTML meta tag</title>
 </head>
 ```
 
@@ -211,14 +211,14 @@ HTML 문서가 어떤 내용을 담고 있고, 키워드는 무엇이며, 누가
 
 ### `HTML5에서 추가된 내용이 있나요?`
 
-- `canvas` 기능 추가
+-   `canvas` 기능 추가
 
-  - `<canvas>`태그는 자바스크립트를 통해 다양한 그림을 그릴 수 있는 공간을 제공해준다
-  - 해상도 독립적으로 SVG 그래픽을 활용하고 있어서 그래프를 그리거나 게임 그래픽이나 다른 기타 이미지를 실시간으로 그려서 사용할 수 있는 기능을 제공해준다
-  - WebGL과 같은 3d 기술의 구현이 웹 브라우저를 통해서도 가능해졌다
+    -   `<canvas>`태그는 자바스크립트를 통해 다양한 그림을 그릴 수 있는 공간을 제공해준다
+    -   해상도 독립적으로 SVG 그래픽을 활용하고 있어서 그래프를 그리거나 게임 그래픽이나 다른 기타 이미지를 실시간으로 그려서 사용할 수 있는 기능을 제공해준다
+    -   WebGL과 같은 3d 기술의 구현이 웹 브라우저를 통해서도 가능해졌다
 
-- 모든 디바이스에서 웹페이지 호환이 가능해졌다
-- 시멘틱 웹 기술을 지원하기 시작했다
+-   모든 디바이스에서 웹페이지 호환이 가능해졌다
+-   시멘틱 웹 기술을 지원하기 시작했다
 
 ### `웹 접근성이란?`
 
@@ -241,7 +241,7 @@ HTML 문서가 어떤 내용을 담고 있고, 키워드는 무엇이며, 누가
 
 6. 컨텐츠는 위에서 아래로 읽을 수 있는 선형구조이어야 함 (ex) 명확한 헤딩구조(h1~h6)
 
-   <br/>
+ <br/>
 
 ### `시멘틱 태그란 무엇인가 왜 사용하는가`
 
@@ -322,17 +322,17 @@ SEO를 위해서는 검색어를 페이지에 적절하게 배치해야 합니�
 
 submit이다. form 태그 안에 form data와 관련 없는 버튼을 만든 후 그 버튼을 눌렀더니 form이 전송될 경우가 발생할 수 있으니 버튼태그는 꼭 type을 명시하자.
 
-- `submit`은 폼을 제출하는 이벤트를 발생시킵니다.
-- `reset`은 폼안에 작성된 내용을 초기화시킵니다.
-- `button`은 그 자체로는 아무런 이벤트가 없고, click이벤트와 연결시켜서 자바스크립트를 활용하는 방법을 많이 사용합니다.
+-   `submit`은 폼을 제출하는 이벤트를 발생시킵니다.
+-   `reset`은 폼안에 작성된 내용을 초기화시킵니다.
+-   `button`은 그 자체로는 아무런 이벤트가 없고, click이벤트와 연결시켜서 자바스크립트를 활용하는 방법을 많이 사용합니다.
 
 <br/>
 
 ### `Section 태그와 article 태그의 차이점`
 
-- `article`: 문서나 사이트에서 독립된 컨텐츠 영역을 지정합니다. 이 부분을 다른 곳에 옮기더라도 분리되어지고, 의미가 통해야합니다.
+-   `article`: 문서나 사이트에서 독립된 컨텐츠 영역을 지정합니다. 이 부분을 다른 곳에 옮기더라도 분리되어지고, 의미가 통해야합니다.
 
-- `section`: 페이지의 주요부분을 의미하며, 긴 글의 세부사항과 같은 관련 컨텐츠의 묶음, 또는 탭 키 사용을 요하는 인터페이스를 가진 웹 어플리케이션에서의 페이지의 묶음 단위를 의미합니다.
+-   `section`: 페이지의 주요부분을 의미하며, 긴 글의 세부사항과 같은 관련 컨텐츠의 묶음, 또는 탭 키 사용을 요하는 인터페이스를 가진 웹 어플리케이션에서의 페이지의 묶음 단위를 의미합니다.
 
 <br/>
 
@@ -362,79 +362,79 @@ SVG는 Scalable Vector Graphics라는 뜻인데, 번역하자면 확장가능한
 
 #### `SVG 장점과 단점`
 
-- SVG 이미지는 마크업으로 쓰이므로 텍스트 에디터로 작성하고 또 작성된 이미지를 수정할 수도 있다.
-- 벡터를 기반으로 그려지므로 사이즈를 크게 해도 깨지지 않는다. scalable => 따라서 어떤 해상도에서 사용하든 동일
-- SVG 버전 1.1은 2011년 W3C 표준이 되었다.
-- XML 포맷으로 파일이 작성되므로 JS나 CSS로 조작이 가능하다.
+-   SVG 이미지는 마크업으로 쓰이므로 텍스트 에디터로 작성하고 또 작성된 이미지를 수정할 수도 있다.
+-   벡터를 기반으로 그려지므로 사이즈를 크게 해도 깨지지 않는다. scalable => 따라서 어떤 해상도에서 사용하든 동일
+-   SVG 버전 1.1은 2011년 W3C 표준이 되었다.
+-   XML 포맷으로 파일이 작성되므로 JS나 CSS로 조작이 가능하다.
 
-* 단, 이미지가 복잡할수록 SVG만의 장점은 감소한다.
+*   단, 이미지가 복잡할수록 SVG만의 장점은 감소한다.
 
 #### `SVG 내부 도형에 대해 아는게 있나요?`
 
-- `<rect>` - 사각형
-  <details>
+-   `<rect>` - 사각형
+    <details>
 
-  <summary>자세히 보기</summary>
+    <summary>자세히 보기</summary>
 
-  ```html
-  <rect x="10" y="10" width="30" height="30" />
-  <rect x="60" y="10" rx="10" ry="10" width="30" height="30" />
-  ```
+    ```html
+    <rect x="10" y="10" width="30" height="30" />
+    <rect x="60" y="10" rx="10" ry="10" width="30" height="30" />
+    ```
 
-  **x -** 사각형의 좌측 상단의 x 값을 의미한다.
+    **x -** 사각형의 좌측 상단의 x 값을 의미한다.
 
-  **y -** 사각형의 좌측 상단의 y 값을 의미한다.
+    **y -** 사각형의 좌측 상단의 y 값을 의미한다.
 
-  **width -** 사각형의 폭을 나타낸다.
+    **width -** 사각형의 폭을 나타낸다.
 
-  **height -** 사각형의 높이를 나타낸다.
+    **height -** 사각형의 높이를 나타낸다.
 
-  **rx -** 사각형의 둥근 꼭짓점의 x 방향으로의 반지름이다.
+    **rx -** 사각형의 둥근 꼭짓점의 x 방향으로의 반지름이다.
 
-  **ry -** 사각형의 둥근 꼭짓점의 y 방향으로의 반지름이다.
+    **ry -** 사각형의 둥근 꼭짓점의 y 방향으로의 반지름이다.
 
-  </details>
+    </details>
 
-  <br/>
+    <br/>
 
-- `<circle>` - 원
+-   `<circle>` - 원
 
-  <details>
+    <details>
 
-  <summary>자세히 보기</summary>
+    <summary>자세히 보기</summary>
 
-  ```html
-  <circle cx="25" cy="75" r="20" />
-  ```
+    ```html
+    <circle cx="25" cy="75" r="20" />
+    ```
 
-  **r -** 원의 반지름을 의미한다.
+    **r -** 원의 반지름을 의미한다.
 
-  **cx (circle x) -** 원의 중심 중 x 값을 의미한다.
+    **cx (circle x) -** 원의 중심 중 x 값을 의미한다.
 
-  **cy (circle y)-** 원의 중심 중 y 값을 의미한다.
+    **cy (circle y)-** 원의 중심 중 y 값을 의미한다.
 
-  </details>
+    </details>
 
-  <br/>
+    <br/>
 
-- `<polyline>` - 연결된 직선들의 그룹
-  <details>
+-   `<polyline>` - 연결된 직선들의 그룹
+    <details>
 
-  <summary>자세히 보기</summary>
+    <summary>자세히 보기</summary>
 
-  ```html
-  <polyline
-    points="60 110, 65 120, 70 115, 75 130, 80 125, 85 140, 90 135, 95 150, 100 145"
-  />
-  ```
+    ```html
+    <polyline
+        points="60 110, 65 120, 70 115, 75 130, 80 125, 85 140, 90 135, 95 150, 100 145"
+    />
+    ```
 
-  **points -** 포인트들의 목록, 각 숫자는 공백, 쉼표, EOL 또는 줄 바꿈 문자로 구분된다. 각 포인트는 반드시 x 좌표와 y 좌표를 가지고 있어야 한다. 따라서 포인트 목록 (0,0), (1,1) 및 (2,2)는 "0 0, 1 1, 2 2"라고 쓸 수 있다.
+    **points -** 포인트들의 목록, 각 숫자는 공백, 쉼표, EOL 또는 줄 바꿈 문자로 구분된다. 각 포인트는 반드시 x 좌표와 y 좌표를 가지고 있어야 한다. 따라서 포인트 목록 (0,0), (1,1) 및 (2,2)는 "0 0, 1 1, 2 2"라고 쓸 수 있다.
 
-  </details>
+    </details>
 
-- `<path>` - 선과 곡선, 호 등 다양한 형태를 그릴 수 있는 가장 강력한 엘리먼트
+-   `<path>` - 선과 곡선, 호 등 다양한 형태를 그릴 수 있는 가장 강력한 엘리먼트
 
-  - [자세히 보기 ](https://developer.mozilla.org/ko/docs/Web/SVG/Tutorial/Paths)
+    -   [자세히 보기 ](https://developer.mozilla.org/ko/docs/Web/SVG/Tutorial/Paths)
 
 <br/>
 
@@ -514,7 +514,7 @@ gird를 사용 하면 list에 width를 따로 입력 하지 않고 리스트에 
 
 ### `이미지 태그를 스타일로 대체하는 법`
 
-- background-image로 대체한다.
+-   background-image로 대체한다.
 
 <br/>
 
@@ -528,10 +528,10 @@ gird를 사용 하면 list에 width를 따로 입력 하지 않고 리스트에 
 
 ### `CSS selector가 어떠한 원리로 동작하나요?`
 
-- ID : `#header`, `#footer`
-- Class : `.container`
-- Tag : `div`, `p`, `a`
-- Universal : \*
+-   ID : `#header`, `#footer`
+-   Class : `.container`
+-   Tag : `div`, `p`, `a`
+-   Universal : \*
 
 <br/>
 
@@ -551,11 +551,11 @@ CSS의 표준권고안에 따르면 크기 단위는 절대단위와 상대단�
 - 상대단위 : em, ex, px, %가 있으며 기종간, 플랫폼 간의 호환성을 유지하는데 유리
 ```
 
-- em : font_size, 해당폰트의 대문자 M의 너비를 기준으로 함.
-- ex : x-height, 해당폰트의 소문자 x의 높이를 기준으로 함.
-- px : pixel, 표시장치(모니터)에 따라서 상대적인 크기를 가짐.
-- % : percent, 기본글꼴의 크기에 대하여 상대적인 값을 가짐.
-- pt : point, 일반 문서(워드 등)에서 많이 사용하는 단위
+-   em : font_size, 해당폰트의 대문자 M의 너비를 기준으로 함.
+-   ex : x-height, 해당폰트의 소문자 x의 높이를 기준으로 함.
+-   px : pixel, 표시장치(모니터)에 따라서 상대적인 크기를 가짐.
+-   % : percent, 기본글꼴의 크기에 대하여 상대적인 값을 가짐.
+-   pt : point, 일반 문서(워드 등)에서 많이 사용하는 단위
 
 <br/>
 
@@ -573,11 +573,11 @@ CSS의 표준권고안에 따르면 크기 단위는 절대단위와 상대단�
 styled-components / emotion.js
 ```
 
-- 컴포넌트 단위로 생각할 수가 있다. CSS-in-JS는 CSS 모델을 문서 레벨이 아니라 컴포넌트 레벨로 추상화 한다.(모듈성)
+-   컴포넌트 단위로 생각할 수가 있다. CSS-in-JS는 CSS 모델을 문서 레벨이 아니라 컴포넌트 레벨로 추상화 한다.(모듈성)
 
-- 진정한 분리 법칙을 따른다. CSS에는 명시적으로 정의하지 않은 경우, 부모 요소에서 자동으로 상속되는 속성이 있다. CSS-in-JS의 경우 부모 요소의 속성을 상속하지 않는다.
+-   진정한 분리 법칙을 따른다. CSS에는 명시적으로 정의하지 않은 경우, 부모 요소에서 자동으로 상속되는 속성이 있다. CSS-in-JS의 경우 부모 요소의 속성을 상속하지 않는다.
 
-- 대표적인 라이브러리로 styled-components와 Emotion이 있다.
+-   대표적인 라이브러리로 styled-components와 Emotion이 있다.
 
 <br/>
 
@@ -596,3 +596,15 @@ sass / less / ...
 
 1. padding : 대상의 내부 여백
 2. margin : 대상의 외부 여백
+
+### 박스 모델에 대해 설명해주세요
+
+CSS 박스 모델은 웹 페이지의 레이아웃을 결정하는 기본적인 개념으로, 각 HTML 요소는 마진, 보더, 패딩, 그리고 실제 콘텐츠로 구성된 박스로 표현됩니다. 이러한 속성들은 요소의 크기와 다른 요소들과의 공간을 결정합니다.
+
+### css에서 cascading의 의미와 선택자의 우선순위에 대해 설명해주세요.
+
+Cascading은 여러 스타일 규칙이 하나의 요소에 적용될 때 우선 순위에 따라 결정된다는 것을 의미합니다. 선택자의 우선순위는 인라인 스타일, ID 선택자, 클래스 및 속성 선택자, 요소 및 의사 요소 선택자 순으로 결정됩니다.
+
+### z-index와 쌓임맥락에 대해 설명해주세요.
+
+Z-index는 요소의 쌓임 순서를 제어하는 CSS 속성입니다. 높은 값은 요소를 앞으로, 낮은 값은 뒤로 배치합니다. 쌓임 맥락은 요소들이 3D 공간에서 서로 상대적으로 어떻게 쌓이는지를 정의합니다. z-index는 부모의 안에서만 그 범위를 가집니다.위치 지정된 요소(position 속성)는 새로운 쌓임 맥락을 생성합니다.
