@@ -106,3 +106,11 @@ https://sikeeoh.medium.com/%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C-%EA%B0%
 ### ios
 
 https://github.com/JeaSungLEE/iOSInterviewquestions
+
+### 해커스 예상
+-   개인주의적 회사 문화가 중요한가
+-    최종적 삶의 목표
+-    야근에 대한 생각
+-    나이에 대한 생각
+-    출퇴근시간
+-    
