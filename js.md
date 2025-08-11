@@ -102,6 +102,8 @@
     -   꼬리 질문) 함수형 프로그래밍이 뭔가요? 🔥
     -   꼬리 질문) 순수 함수가 뭔가요? 일반 함수와는 어떤 차이가 있죠? 🔥
 
+-   [Map과 Set 그리고 Lookup Table](#Map과-Set-그리고-Lookup-Table)
+
 -   [프로토타입 🔥](#프로토타입)
 
     -   객체지향 프로그래밍은 무엇을 의미하나요? 🔥
@@ -232,6 +234,14 @@
 -   [모듈 🔥](#모듈)
 
     -   모듈이 뭔가요?
+
+-   [가비지 컬렉션 🔥](#가비지-컬렉션)
+
+    -   자바스크립트의 가바지 컬렉션에 대해 알고 있나요?
+
+-   [가비지 컬렉션 🔥](#가비지-컬렉션)
+
+    -   자바스크립트의 가바지 컬렉션에 대해 알고 있나요?
 
 ## 프로그래밍
 
@@ -961,6 +971,8 @@ forEach 메서드와 마찬가지로 map 메서드의 콜백 함수는 map 메�
 var person = {
     name: 'Lee',
     age: 20,
+  name: 'Lee',
+  age: 20,
 };
 ```
 
@@ -1054,6 +1066,7 @@ score 변수와 copy 변수의 값 80은 다른 메모리 공간에 저장된 �
 ```js
 var person = {
     name: 'Lee',
+  name: 'Lee',
 };
 
 // 참조값을 복사(얕은 복사)
@@ -1206,6 +1219,30 @@ bar(); // ?
 소스코드의 실행에 있어서 foo 함수 내부에서 bar 함수를 '호출' 하더라도, bar 함수는 foo 함수와 동일한 스코프인 전역 스코프에 '정의'되어 있기 때문에 foo 함수 내부의 x=10을 참조할 수 없습니다.
 
 따라서 foo, bar의 호출한 결과는 모두 1로 반환됩니다. 이러한 자바스크립트의 정적인 스코프 특징을 '렉시컬 스코프', '정적 스코프' 라고 부릅니다.
+function outer() {
+  let outerVar = 'I am from outer';
+
+  function inner() {
+    let innerVar = 'I am from inner';
+    console.log(outerVar); // 접근 가능
+    console.log(innerVar); // 접근 가능
+  }
+
+  inner();
+  console.log(outerVar); // 접근 가능
+  // console.log(innerVar); // 접근 불가, ReferenceError 발생
+}
+
+outer();
+```
+
+위 코드에서 inner 함수는 outer 함수 내부에 정의되어 있습니다. 자바스크립트는 렉시컬 스코핑을 사용하여 스코프 체인을 구축합니다. 이는 다음과 같은 스코프 체인을 생성합니다:
+
+- Global Scope: 전역 변수와 함수가 정의되는 스코프
+- Outer Function Scope: outer 함수 내에서 정의된 변수 outerVar가 있는 스코프
+- Inner Function Scope: inner 함수 내에서 정의된 변수 innerVar가 있는 스코프
+
+inner 함수는 자신을 둘러싼 외부 함수 outer의 스코프를 렉시컬하게 기억합니다. 따라서 inner 함수 내부에서는 outer 함수의 변수인 outerVar에 접근할 수 있습니다. 그러나 outer 함수는 inner 함수 내부의 변수인 innerVar에 접근할 수 없습니다.
 
 <br/>
 
@@ -1351,6 +1388,166 @@ console.log(decreaser()); // -2
 
 1. 순수 함수: 어떤 외부 상태에 의존하지도 않고 변경하지도 않는, 즉 부수 효과가 없는 함수를 순수 함수라 한다.
 2. 비순수 함수: 외부 상태에 의존하거나 외부 상태를 변경하는, 즉 부수 효과가 있는 함수를 비순수 함수라고 한다.
+
+## Map과 Set 그리고 Lookup Table
+
+### 맵
+
+맵(Map)은 키가 있는 데이터를 저장한다는 점에서 객체와 유사합니다. 다만, 맵은 키에 다양한 자료형을 허용한다는 점에서 차이가 있습니다.
+
+맵에는 다음과 같은 주요 메서드와 프로퍼티가 있습니다.
+
+new Map() – 맵을 만듭니다.
+map.set(key, value) – key를 이용해 value를 저장합니다.
+map.get(key) – key에 해당하는 값을 반환합니다. key가 존재하지 않으면 undefined를 반환합니다.
+map.has(key) – key가 존재하면 true, 존재하지 않으면 false를 반환합니다.
+map.delete(key) – key에 해당하는 값을 삭제합니다.
+map.clear() – 맵 안의 모든 요소를 제거합니다.
+map.size – 요소의 개수를 반환합니다.
+예시:
+
+```js
+
+let map = new Map();
+
+map.set('1', 'str1');   // 문자형 키
+map.set(1, 'num1');     // 숫자형 키
+map.set(true, 'bool1'); // 불린형 키
+
+// 객체는 키를 문자형으로 변환한다는 걸 기억하고 계신가요?
+// 맵은 키의 타입을 변환시키지 않고 그대로 유지합니다. 따라서 아래의 코드는 출력되는 값이 다릅니다.
+alert( map.get(1)   ); // 'num1'
+alert( map.get('1') ); // 'str1'
+
+alert( map.size ); // 3
+맵은 객체와 달리 키를 문자형으로 변환하지 않습니다. 키엔 자료형 제약이 없습니다.
+```
+
+-   map[key]는 Map을 쓰는 바른 방법이 아닙니다. > 룩업 테이블 구조
+-   map[key] = 2로 값을 설정하는 것 같이 map[key]를 사용할 수 있긴 합니다. 하지만 이 방법은 map을 일반 객체처럼 취급하게 됩니다. 따라서 여러 제약이 생기게 되죠.
+-   map을 사용할 땐 map전용 메서드 set, get 등을 사용해야만 합니다.
+
+### 셋
+
+셋(Set)은 중복을 허용하지 않는 값을 모아놓은 특별한 컬렉션입니다. 셋에 키가 없는 값이 저장됩니다.
+
+주요 메서드는 다음과 같습니다.
+
+new Set(iterable) – 셋을 만듭니다. 이터러블 객체를 전달받으면(대개 배열을 전달받음) 그 안의 값을 복사해 셋에 넣어줍니다.
+set.add(value) – 값을 추가하고 셋 자신을 반환합니다.
+set.delete(value) – 값을 제거합니다. 호출 시점에 셋 내에 값이 있어서 제거에 성공하면 true, 아니면 false를 반환합니다.
+set.has(value) – 셋 내에 값이 존재하면 true, 아니면 false를 반환합니다.
+set.clear() – 셋을 비웁니다.
+set.size – 셋에 몇 개의 값이 있는지 세줍니다.
+셋 내에 동일한 값(value)이 있다면 set.add(value)을 아무리 많이 호출하더라도 아무런 반응이 없을 겁니다. 셋 내의 값에 중복이 없는 이유가 바로 이 때문이죠.
+
+방문자 방명록을 만든다고 가정해 봅시다. 한 방문자가 여러 번 방문해도 방문자를 중복해서 기록하지 않겠다고 결정 내린 상황입니다. 즉, 한 방문자는 '단 한 번만 기록’되어야 합니다.
+
+이때 적합한 자료구조가 바로 셋입니다.
+
+```js
+let set = new Set();
+
+let john = { name: 'John' };
+let pete = { name: 'Pete' };
+let mary = { name: 'Mary' };
+
+// 어떤 고객(john, mary)은 여러 번 방문할 수 있습니다.
+set.add(john);
+set.add(pete);
+set.add(mary);
+set.add(john);
+set.add(mary);
+
+// 셋에는 유일무이한 값만 저장됩니다.
+alert(set.size); // 3
+
+for (let user of set) {
+    alert(user.name); // // John, Pete, Mary 순으로 출력됩니다.
+}
+```
+
+### 룩업 테이블
+
+룩업 테이블(Lookup Table) 구조를 사용하는 것도 객체의 중복 키 값을 제거하는 좋은 방법입니다. 이 방법은 특히 대량의 데이터에서 중복 제거를 수행할 때 효율적입니다.
+룩업 테이블은 키-값 쌍을 저장하는 자료구조로, 검색 속도가 매우 빠른 것이 장점입니다. 객체에서 중복 키 값 제거를 위해 룩업 테이블을 사용하는 방법은 다음과 같습니다:
+
+**날짜 별로 메시지 데이터를 나눌 때, 룩업 테이블을 사용합니다.**
+
+```ts
+interface Data {
+    date: string; // 'YYYY-MM-DD' 형식의 날짜 문자열
+    value: any; // 데이터 값
+}
+
+const groupByDate = (data: Data[]): Record<string, Data[]> => {
+    const lookupTable: Record<string, Data[]> = {};
+
+    for (const item of data) {
+        const { date, value } = item;
+
+        if (!lookupTable[date]) {
+            lookupTable[date] = [];
+        }
+
+        lookupTable[date].push({ date, value });
+    }
+
+    return lookupTable;
+};
+
+// 사용 예시
+const data: Data[] = [
+    { date: '2023-06-01', value: 10 },
+    { date: '2023-06-02', value: 20 },
+    { date: '2023-06-01', value: 30 },
+    { date: '2023-06-03', value: 40 },
+];
+
+const lookupTable = groupByDate(data);
+/*
+lookupTable: {
+  '2023-06-01': [
+    { date: '2023-06-01', value: 10 },
+    { date: '2023-06-01', value: 30 }
+  ],
+  '2023-06-02': [
+    { date: '2023-06-02', value: 20 }
+  ],
+  '2023-06-03': [
+    { date: '2023-06-03', value: 40 }
+  ]
+}
+*/
+```
+
+-   빈 객체를 룩업 테이블로 사용합니다.
+-   원본 객체의 모든 키-값 쌍을 룩업 테이블에 추가합니다. 이때 중복 키가 있다면 기존 값이 새로운 값으로 덮어씌워집니다.
+-   룩업 테이블을 다시 객체로 변환하면 중복 키 값이 제거된 새로운 객체를 얻을 수 있습니다.
+
+이 방식의 장점은 대량의 데이터에서도 빠른 검색 속도를 유지할 수 있다는 점입니다. 다만, 최종적으로 중복 키에 대한 마지막 값만 남게 되므로, 중복 키에 대한 처리 로직이 별도로 필요할 수 있습니다.
+또한, 룩업 테이블 방식은 메모리 사용량이 다소 늘어날 수 있습니다. 왜냐하면 임시로 키-값 쌍을 모두 저장해야 하기 때문입니다. 따라서 메모리 제약이 있는 환경에서는 주의가 필요합니다.
+
+### 언제 룩업 테이블과 셋을 골라서 써야 할까?
+
+룩업 테이블과 Set 모두 객체에서 중복 제거를 할 수 있는 효과적인 방법입니다. 각각의 장단점을 고려하여 상황에 맞게 적절히 선택하는 것이 중요합니다.
+
+**Set을 사용하는 경우:**
+
+-   데이터 크기가 작고, 메모리 효율성이 크게 중요하지 않은 경우
+-   중복 제거 외에 다른 로직이 필요 없는 경우
+-   코드 가독성과 간결함이 중요한 경우
+-   순서가 중요하지 않은 경우 (Set은 값의 순서를 보장하지 않음)
+
+**룩업 테이블을 사용하는 경우:**
+
+-   대량의 데이터에서 중복 제거를 수행해야 하는 경우 (검색 속도가 빠름)
+-   순서가 중요한 경우 (룩업 테이블은 객체이므로 삽입 순서 유지)
+-   중복 키에 대한 추가 처리 로직이 필요한 경우
+-   메모리 효율성보다는 속도 효율성이 더 중요한 경우
+
+일반적으로 데이터 크기가 크지 않고, 단순한 중복 제거만 필요하다면 Set을 사용하는 것이 더 간편합니다. 하지만 대량의 데이터나 추가 로직이 필요한 경우에는 룩업 테이블이 더 적합할 수 있습니다.
+결론적으로 프로젝트의 요구사항, 데이터 크기, 성능 요구 수준, 메모리 제약 등을 종합적으로 고려하여 Set과 룩업 테이블 중 적절한 방법을 선택하는 것이 좋습니다.
 
 ## 프로토타입
 
@@ -1636,7 +1833,7 @@ callFunc();
 
 이처럼 상위 스코프의 어떤 식별자도 참조하지 않는 경우 대부분의 모던 브라우저는 최적화를 통해 다음 그림과 같이 상위 스코프를 기억하지 않는다.
 
-참조하지도 않는 식별자를 기억하는 것은 메모리 낭비이기 때문이다. `따라서 bar 함수는 클로저라고 할 수 없다.`
+참조하지도 않는 식별자를 기억하는 것은 메모리 낭비이기 때문이다. **따라서 bar 함수는 클로저라고 할 수 없다.**
 
 ```
 참조하는 식별자를 실행 컨텍스트가 종료되어도 렉시컬 환경을 통해 참조하고, 값을 변경할 수 있는 것이 클로저이다.
@@ -1680,7 +1877,7 @@ callFunc();
 
 즉, 외부 함수 foo보다 중첩 함수 bar의 생명 주기가 짧다. 이런 경우 중첩 함수 bar는 클로저였지만 외부 함수보다 일찍 소멸되기 때문에 생명 주기가 종료된 외부 함수의 식별자를 참조할 수 있다든 클로저의 본질에 부합하지 않는다.
 
-따라서 중첩 함수 bar는 일반적으로 클로저라고 하지 않는다.
+따라서 **중첩 함수 bar는 일반적으로 클로저라고 하지 않는다.**
 
 <br/>
 
@@ -1826,6 +2023,7 @@ function Person(name) {
 // 프로토타입 메서드
 Person.prototype.sayHi = function () {
     console.log('Hi! My name is ' + this.name);
+  console.log('Hi! My name is ' + this.name);
 };
 
 // 인스턴스 생성
@@ -1900,6 +2098,10 @@ class Person {
     static sayHello() {
         console.log('Hello!');
     }
+  // 정적 메서드 (static을 붙여 정의한다)
+  static sayHello() {
+    console.log('Hello!');
+  }
 }
 
 // 인스턴스 생성
@@ -1947,10 +2149,16 @@ class Animal {
     eat() {
         return 'eat';
     }
+  eat() {
+    return 'eat';
+  }
 
     move() {
         return 'move';
     }
+  move() {
+    return 'move';
+  }
 }
 
 // 상속을 통해 Animal 클래스를 확장한 Bird 클래스
@@ -1958,6 +2166,9 @@ class Bird extends Animal {
     fly() {
         return 'fly';
     }
+  fly() {
+    return 'fly';
+  }
 }
 
 const bird = new Bird(1, 5);
@@ -2344,6 +2555,12 @@ const user = {
         zipCode: 14063,
         city: 'Anyang',
     },
+  name: 'junhee',
+  age: 25,
+  address: {
+    zipCode: 14063,
+    city: 'Anyang',
+  },
 };
 
 const {
@@ -2464,6 +2681,21 @@ DOM 요소를 조작하는 `<script>` 태그가 `<body>` 태그 위에 존재한
             <li id="orange">Orange</li>
         </ul>
     </body>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="style.css" />
+    <script>
+      const $apple = document.getElementById('apple');
+      $apple.style.color = 'red';
+    </script>
+  </head>
+  <body>
+    <ul>
+      <li id="apple">Apple</li>
+      <li id="banana">Banana</li>
+      <li id="orange">Orange</li>
+    </ul>
+  </body>
 </html>
 ```
 
@@ -2678,6 +2910,10 @@ ORANGE
         <button>Click me!</button>
         <script>
             const $button = document.querySelector('button');
+  <body>
+    <button>Click me!</button>
+    <script>
+      const $button = document.querySelector('button');
 
             // 이벤트 핸들러 프로퍼티에 이벤트 핸들러를 바인딩 (익명 함수로 가능)
             $button.onclick = function () {
@@ -2685,6 +2921,12 @@ ORANGE
             };
         </script>
     </body>
+      // 이벤트 핸들러 프로퍼티에 이벤트 핸들러를 바인딩 (익명 함수로 가능)
+      $button.onclick = function () {
+        console.log('button click');
+      };
+    </script>
+  </body>
 </html>
 ```
 
@@ -2699,12 +2941,20 @@ ORANGE
         <script>
             const $button = document.querySelector('button');
             const $em = document.querySelector('em');
+    <script>
+      const $button = document.querySelector('button');
+      const $em = document.querySelector('em');
 
             $button.addEventListener('click', function () {
                 $em.innerHTML = 'Button Cliked 1';
             });
         </script>
     </body>
+      $button.addEventListener('click', function () {
+        $em.innerHTML = 'Button Cliked 1';
+      });
+    </script>
+  </body>
 </html>
 ```
 
@@ -2744,11 +2994,26 @@ DOM 트리상에 존재하는 모든 DOM 요소 노드에서 발생한 이벤트
         const html = document.querySelector('html');
         const body = document.querySelector('body');
         const div = document.querySelector('div');
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>Click me</div>
+  </body>
+  <script>
+    const html = document.querySelector('html');
+    const body = document.querySelector('body');
+    const div = document.querySelector('div');
 
         html.addEventListener('click', () => console.log('HTML'));
         body.addEventListener('click', () => console.log('BODY'));
         div.addEventListener('click', () => console.log('DIV'));
     </script>
+    html.addEventListener('click', () => console.log('HTML'));
+    body.addEventListener('click', () => console.log('BODY'));
+    div.addEventListener('click', () => console.log('DIV'));
+  </script>
 </html>
 ```
 
@@ -2822,12 +3087,27 @@ DIV
         </div>
         <script>
             const div = document.querySelector('div');
+  <body>
+    <div class="container">
+      <button class="btn-number">1</button>
+      <button class="btn-number">2</button>
+      <button class="btn-number">3</button>
+      <button class="btn-number">4</button>
+      <button class="btn-number">5</button>
+    </div>
+    <script>
+      const div = document.querySelector('div');
 
             div.addEventListener('click', (e) => {
                 console.log(e.target.innerHTML);
             });
         </script>
     </body>
+      div.addEventListener('click', (e) => {
+        console.log(e.target.innerHTML);
+      });
+    </script>
+  </body>
 </html>
 ```
 
@@ -2859,6 +3139,14 @@ e.preventDefault 메서드는 요소 태그의 기본 동작을 중단합니다.
                 // a 요소의 기본 동작을 중단한다.
                 e.preventDefault();
             };
+  <body>
+    <a href="https://www.google.com">go</a>
+    <input type="checkbox" />
+    <script>
+      document.querySelector('a').onclick = (e) => {
+        // a 요소의 기본 동작을 중단한다.
+        e.preventDefault();
+      };
 
             document.querySelector('input[type=checkbox]').onclick = (e) => {
                 // checkbox 요소의 기본 동작을 중단한다.
@@ -2866,6 +3154,12 @@ e.preventDefault 메서드는 요소 태그의 기본 동작을 중단합니다.
             };
         </script>
     </body>
+      document.querySelector('input[type=checkbox]').onclick = (e) => {
+        // checkbox 요소의 기본 동작을 중단한다.
+        e.preventDefault();
+      };
+    </script>
+  </body>
 </html>
 ```
 
@@ -2916,10 +3210,28 @@ e.stopPropagation 메서드는 이벤트 전파를 중지시키는 메서드입�
         <script>
             const div = document.querySelector('div');
             const button = document.querySelector('button');
+    button {
+      width: 100px;
+      height: 30px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  </style>
+  <body>
+    <div>
+      <button>Button</button>
+    </div>
+    <script>
+      const div = document.querySelector('div');
+      const button = document.querySelector('button');
 
             div.addEventListener('click', () => {
                 console.log('DIV');
             });
+      div.addEventListener('click', () => {
+        console.log('DIV');
+      });
 
             button.addEventListener('click', (e) => {
                 e.stopPropagation();
@@ -2927,6 +3239,12 @@ e.stopPropagation 메서드는 이벤트 전파를 중지시키는 메서드입�
             });
         </script>
     </body>
+      button.addEventListener('click', (e) => {
+        e.stopPropagation();
+        console.log('BUTTON');
+      });
+    </script>
+  </body>
 </html>
 ```
 
@@ -3060,6 +3378,12 @@ scroll, resize, mousemove 같은 이벤트는 짧은 시간 간격으로 연속�
         <script>
             const $input = document.querySelector('input');
             const $msg = document.querySelector('.msg');
+  <body>
+    <input type="text" />
+    <div class="msg"></div>
+    <script>
+      const $input = document.querySelector('input');
+      const $msg = document.querySelector('.msg');
 
             const debounce = (callback, delay) => {
                 let timerId;
@@ -3141,6 +3465,10 @@ scroll 이벤트는 사용자가 스크롤할 때 짧은 시간 간격으로 연
             const $container = document.querySelector('.container');
             const $normalCount = document.querySelector('.normal-count');
             const $throttleCount = document.querySelector('.throttle-count');
+    <script>
+      const $container = document.querySelector('.container');
+      const $normalCount = document.querySelector('.normal-count');
+      const $throttleCount = document.querySelector('.throttle-count');
 
             const throttle = (callback, delay) => {
                 let timerId;
@@ -3165,6 +3493,10 @@ scroll 이벤트는 사용자가 스크롤할 때 짧은 시간 간격으로 연
             $container.addEventListener('scroll', () => {
                 $normalCount.textContent = ++normalCount;
             });
+      let normalCount = 0;
+      $container.addEventListener('scroll', () => {
+        $normalCount.textContent = ++normalCount;
+      });
 
             let throttleCount = 0;
             // throttle 함수가 반환하는 클로저가 이벤트 핸들러로 등록된다.
@@ -3176,6 +3508,16 @@ scroll 이벤트는 사용자가 스크롤할 때 짧은 시간 간격으로 연
             );
         </script>
     </body>
+      let throttleCount = 0;
+      // throttle 함수가 반환하는 클로저가 이벤트 핸들러로 등록된다.
+      $container.addEventListener(
+        'scroll',
+        throttle(() => {
+          $throttleCount.textContent = ++throttleCount;
+        }, 1000)
+      );
+    </script>
+  </body>
 </html>
 ```
 
@@ -3257,10 +3599,12 @@ function sleep(func, delay) {
 
 function foo() {
     console.log('foo');
+  console.log('foo');
 }
 
 function bar() {
     console.log('bar');
+  console.log('bar');
 }
 
 sleep(foo, 3000);
@@ -3280,10 +3624,12 @@ bar();
 ```js
 function foo() {
     console.log('foo');
+  console.log('foo');
 }
 
 function bar() {
     console.log('bar');
+  console.log('bar');
 }
 
 // 타이머 함수 setTimeout은 일정 시간이 경과한 이후에 콜백 함수 foo를 호출한다.
@@ -3375,10 +3721,12 @@ setTimeout 함수는 앞서 살펴본 sleep 함수와 유사하게 일정 시간
 ```js
 function foo() {
     console.log('foo');
+  console.log('foo');
 }
 
 function bar() {
     console.log('bar');
+  console.log('bar');
 }
 
 setTimeout(foo, 0); // 0초(실제는 4ms) 후에 foo 함수가 호출된다.
@@ -3584,6 +3932,12 @@ xhr.onload = () => {
     } else {
         console.error('Error', xhr.status, xhr.statusText);
     }
+  if (xhr.status === 200) {
+    console.log(JSON.parse(xhr.response));
+    // {userId: 1, id: 1, title: "delectus aut autem", completed: false}
+  } else {
+    console.error('Error', xhr.status, xhr.statusText);
+  }
 };
 ```
 
@@ -3612,6 +3966,8 @@ fetch 함수는 HTTP 응답을 나타내는 Response 객체를 래핑한 Promise
 ```js
 fetch('https://jsonplaceholder.typicode.com/todos/1').then((response) =>
     console.log(response)
+fetch('https://jsonplaceholder.typicode.com/todos/1').then((response) =>
+  console.log(response)
 );
 ```
 
@@ -3632,6 +3988,12 @@ fetch('https://jsonplaceholder.typicode.com/todos/1')
     .then((response) => response.json())
     // json은 역직렬화된 HTTP 응답 몸체이다.
     .then((json) => console.log(json));
+fetch('https://jsonplaceholder.typicode.com/todos/1')
+  // response는 HTTP 응답을 나타내는 Response 객체이다.
+  // json 메서드를 사용하여 Response 객체에서 HTTP 응답 몸체를 취득하여 역직렬화한다.
+  .then((response) => response.json())
+  // json은 역직렬화된 HTTP 응답 몸체이다.
+  .then((json) => console.log(json));
 // {userId: 1, id: 1, title: "delectus aut autem", completed: false}
 ```
 
@@ -3652,6 +4014,18 @@ fetch('https://jsonplaceholder.typicode.com/todos/1')
                 const result = JSON.stringify(res);
                 document.querySelector('pre').innerHTML = `<b>${result}</b>`;
             };
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+  </head>
+  <body>
+    <pre></pre>
+    <script>
+      const render = (res) => {
+        console.log(res);
+        const result = JSON.stringify(res);
+        document.querySelector('pre').innerHTML = `<b>${result}</b>`;
+      };
 
             const request = {
                 // get 메서드
@@ -3679,6 +4053,32 @@ fetch('https://jsonplaceholder.typicode.com/todos/1')
                     return fetch(url, { method: 'DELETE' });
                 },
             };
+      const request = {
+        // get 메서드
+        get(url) {
+          return fetch(url);
+        },
+        // post 메서드
+        post(url, payload) {
+          return fetch(url, {
+            method: 'POST',
+            headers: { 'content-Type': 'application/json' },
+            body: JSON.stringify(payload),
+          });
+        },
+        // patch 메서드
+        patch(url, payload) {
+          return fetch(url, {
+            method: 'PATCH',
+            headers: { 'content-Type': 'application/json' },
+            body: JSON.stringify(payload),
+          });
+        },
+        // delete 메서드
+        delete(url) {
+          return fetch(url, { method: 'DELETE' });
+        },
+      };
 
             // get
             request
@@ -3686,6 +4086,12 @@ fetch('https://jsonplaceholder.typicode.com/todos/1')
                 .then((response) => response.json())
                 .then((todos) => render(todos))
                 .catch((err) => console.log(err));
+      // get
+      request
+        .get('https://jsonplaceholder.typicode.com/todos/1')
+        .then((response) => response.json())
+        .then((todos) => render(todos))
+        .catch((err) => console.log(err));
 
             // post
             request
@@ -3697,6 +4103,16 @@ fetch('https://jsonplaceholder.typicode.com/todos/1')
                 .then((response) => response.json())
                 .then((todos) => console.log(todos))
                 .catch((err) => console.log(err));
+      // post
+      request
+        .post('https://jsonplaceholder.typicode.com/todos', {
+          userId: 1,
+          title: 'JavaScript',
+          completed: false,
+        })
+        .then((response) => response.json())
+        .then((todos) => console.log(todos))
+        .catch((err) => console.log(err));
 
             // patch
             request
@@ -3706,6 +4122,14 @@ fetch('https://jsonplaceholder.typicode.com/todos/1')
                 .then((response) => response.json())
                 .then((todos) => console.log(todos))
                 .catch((err) => console.log(err));
+      // patch
+      request
+        .patch('https://jsonplaceholder.typicode.com/todos/1', {
+          completed: true,
+        })
+        .then((response) => response.json())
+        .then((todos) => console.log(todos))
+        .catch((err) => console.log(err));
 
             // delete
             request
@@ -3715,6 +4139,14 @@ fetch('https://jsonplaceholder.typicode.com/todos/1')
                 .catch((err) => console.log(err));
         </script>
     </body>
+      // delete
+      request
+        .delete('https://jsonplaceholder.typicode.com/todos/1')
+        .then((response) => response.json())
+        .then((todos) => console.log(todos))
+        .catch((err) => console.log(err));
+    </script>
+  </body>
 </html>
 ```
 
@@ -3802,6 +4234,7 @@ GET /todos/1
             const xhr = new XMLHttpRequest();
 
             xhr.open('GET', '/todos');
+      xhr.open('GET', '/todos');
 
             xhr.send();
 
@@ -3814,6 +4247,15 @@ GET /todos/1
             };
         </script>
     </body>
+      xhr.onload = () => {
+        if (xhr.status === 200) {
+          document.querySelector('pre').innerHTML = xhr.response;
+        } else {
+          console.error('Error', xhr.status, xhr.statusText);
+        }
+      };
+    </script>
+  </body>
 </html>
 ```
 
@@ -3832,6 +4274,7 @@ GET /todos/1
             const xhr = new XMLHttpRequest();
 
             xhr.open('GET', '/todos/1');
+      xhr.open('GET', '/todos/1');
 
             xhr.send();
 
@@ -3846,6 +4289,17 @@ GET /todos/1
             };
         </script>
     </body>
+      xhr.onload = () => {
+        if (xhr.status === 200) {
+          const result = (document.querySelector(
+            'pre'
+          ).innerHTML = `<h1>${xhr.response}</h1>`);
+        } else {
+          console.error('Error', xhr.status, xhr.statusText);
+        }
+      };
+    </script>
+  </body>
 </html>
 ```
 
@@ -3864,12 +4318,25 @@ GET /todos/1
             const xhr = new XMLHttpRequest();
             xhr.open('POST', '/todos');
             xhr.setRequestHeader('content-type', 'application/json');
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+  </head>
+  <body>
+    <pre></pre>
+    <script>
+      const xhr = new XMLHttpRequest();
+      xhr.open('POST', '/todos');
+      xhr.setRequestHeader('content-type', 'application/json');
 
             // 해당 액션이 db.json에 생성된 후에 다시 한번 해당 url로 접근한다면
             // Error: Insert failed, duplicate id (유효하지 않은 id 값) 이라는 에러가 뜬다
             xhr.send(
                 JSON.stringify({ id: 4, content: 'Angular', completed: false })
             );
+      // 해당 액션이 db.json에 생성된 후에 다시 한번 해당 url로 접근한다면
+      // Error: Insert failed, duplicate id (유효하지 않은 id 값) 이라는 에러가 뜬다
+      xhr.send(JSON.stringify({ id: 4, content: 'Angular', completed: false }));
 
             xhr.onload = () => {
                 if (xhr.status === 200 || xhr.status === 201) {
@@ -3880,6 +4347,15 @@ GET /todos/1
             };
         </script>
     </body>
+      xhr.onload = () => {
+        if (xhr.status === 200 || xhr.status === 201) {
+          document.querySelector('pre').innerHTML = xhr.response;
+        } else {
+          console.error('Error', xhr.status, xhr.statusText);
+        }
+      };
+    </script>
+  </body>
 </html>
 ```
 
@@ -3899,6 +4375,8 @@ GET /todos/1
 
             xhr.open('PATCH', '/todos/4');
             xhr.setRequestHeader('content-type', 'application/json');
+      xhr.open('PATCH', '/todos/4');
+      xhr.setRequestHeader('content-type', 'application/json');
 
             xhr.send(JSON.stringify({ completed: false }));
 
@@ -3911,6 +4389,15 @@ GET /todos/1
             };
         </script>
     </body>
+      xhr.onload = () => {
+        if (xhr.status === 200) {
+          document.querySelector('pre').innerHTML = xhr.response;
+        } else {
+          console.error('Error', xhr.status, xhr.statusText);
+        }
+      };
+    </script>
+  </body>
 </html>
 ```
 
@@ -3929,6 +4416,7 @@ GET /todos/1
             const xhr = new XMLHttpRequest();
 
             xhr.open('DELETE', '/todos/4');
+      xhr.open('DELETE', '/todos/4');
 
             xhr.send();
 
@@ -3941,6 +4429,15 @@ GET /todos/1
             };
         </script>
     </body>
+      xhr.onload = () => {
+        if (xhr.status === 200) {
+          document.querySelector('pre').innerHTML = xhr.response;
+        } else {
+          console.error('Error', xhr.status, xhr.statusText);
+        }
+      };
+    </script>
+  </body>
 </html>
 ```
 
@@ -4003,6 +4500,14 @@ get('/step1', (a) => {
             });
         });
     });
+get('/step1', (a) => {
+  get(`/step2/${a}`, (b) => {
+    get(`/step3/${b}`, (c) => {
+      get(`/step4/${c}`, (d) => {
+        console.log(d);
+      });
+    });
+  });
 });
 ```
 
@@ -4166,6 +4671,10 @@ Promise.allSettled([
     new Promise((_, reject) =>
         setTimeout(() => reject(new Error('Error!')), 1000)
     ),
+  new Promise((resolve) => setTimeout(() => resolve(1), 2000)),
+  new Promise((_, reject) =>
+    setTimeout(() => reject(new Error('Error!')), 1000)
+  ),
 ]).then(console.log);
 /*
 [
@@ -4274,6 +4783,11 @@ await 키워드는 반드시 프로미스 앞에서 사용해야 한다.
         // async 사용!
         async function fetchTodo() {
             const url = 'https://jsonplaceholder.typicode.com/todos/1';
+  <pre></pre>
+  <script>
+    // async 사용!
+    async function fetchTodo() {
+      const url = 'https://jsonplaceholder.typicode.com/todos/1';
 
             const response = await fetch(url);
             const todo = await response.json();
@@ -4282,6 +4796,13 @@ await 키워드는 반드시 프로미스 앞에서 사용해야 한다.
             document.querySelector('pre').innerHTML = result;
             // {userId: 1, id: 1, title: 'delectus aut autem', completed: false}
         }
+      const response = await fetch(url);
+      const todo = await response.json();
+      console.log(todo);
+      const result = JSON.stringify(todo, null, 2);
+      document.querySelector('pre').innerHTML = result;
+      // {userId: 1, id: 1, title: 'delectus aut autem', completed: false}
+    }
 
         fetchTodo();
     </script>
@@ -4392,6 +4913,8 @@ try {
 } catch (error) {
     console.error('[에러 발생]', error);
     // [에러 발생] ReferenceError: foo is not defined
+  console.error('[에러 발생]', error);
+  // [에러 발생] ReferenceError: foo is not defined
 }
 
 // 발생한 에러에 적절한 대응을 하면 프로그램이 강제 종료되지 않는다.
@@ -4461,6 +4984,8 @@ Error 생성자 함수로 에러 객체를 생성한다고 에러가 발생하�
 try {
     // 에러 객체를 생성한다고 에러가 발생하는 것은 아니다.
     new Error('something wrong');
+  // 에러 객체를 생성한다고 에러가 발생하는 것은 아니다.
+  new Error('something wrong');
 } catch (error) {
     console.log(error);
 }
@@ -4476,6 +5001,8 @@ throw 표현식;
 try {
     // 에러 객체를 던지면 catch 코드 블록이 실행되기 시작한다.
     throw new Error('something wrong');
+  // 에러 객체를 던지면 catch 코드 블록이 실행되기 시작한다.
+  throw new Error('something wrong');
 } catch (error) {
     console.log(error);
 }
@@ -4506,3 +5033,67 @@ try {
 자바스크립트는 기본적으로 모듈이 성립하기 위해 필요한 파일 스코프와 import, export를 지원하지 않는다.
 
 따라서 자바스크립트를 클라이언트 사이드, 즉 브라우저 환경에 국한하지 않고 범용적으로 사용하려는 움직임이 생기면서 이러한 상황에 제안된 것이 **CommonJS** 와 **AMD(asynchronous module definition)** 다.
+
+## 가비지 컬렉션
+
+### `자바스크립트의 가바지 컬렉션에 대해 알고 있나요?`
+
+자바스크립트 가비지 컬렉션(Garbage Collection, GC)은 메모리 관리를 자동화하여 개발자가 명시적으로 메모리를 할당하거나 해제할 필요 없이 메모리를 효율적으로 사용하는 기능입니다. 자바스크립트의 가비지 컬렉션은 주로 '참조 카운팅(Reference Counting)'과 '마크 앤 스위프(Mark-and-Sweep)' 알고리즘을 사용합니다.
+
+### 1. 참조 카운팅(Reference Counting)
+
+참조 카운팅 방식은 객체에 대한 참조(reference)를 추적합니다. 객체가 더 이상 참조되지 않을 때, 즉 참조 카운트가 0이 될 때 그 객체는 가비지 컬렉션의 대상이 됩니다.
+
+**장점:**
+
+-   간단한 구현
+-   즉시 수거 가능
+
+**단점:**
+
+-   순환 참조(circular reference) 문제를 해결하지 못함. 예를 들어, 두 객체가 서로를 참조할 경우, 참조 카운트가 0이 되지 않아서 메모리 누수가 발생할 수 있습니다.
+
+### 2. 마크 앤 스위프(Mark-and-Sweep)
+
+현대 자바스크립트 엔진(V8, SpiderMonkey 등)은 주로 '마크 앤 스위프' 방식을 사용합니다. 이 방식은 두 단계로 작동합니다:
+
+**1. 마크 단계(Mark Phase):**
+
+-   GC 루트(GC roots)에서 시작하여 도달 가능한 모든 객체를 '마크'합니다.
+-   GC 루트는 전역 객체, 현재 함수의 스코프 체인, 함수의 인수 및 지역 변수 등입니다.
+-   도달 가능한 객체는 '활성'으로 표시됩니다.
+
+**2. 스위프 단계(Sweep Phase):**
+
+-   메모리를 순회하면서 마크되지 않은 객체를 수거(해제)합니다.
+-   즉, 도달 불가능한 객체는 메모리에서 제거됩니다.
+
+**장점:**
+
+-   순환 참조 문제를 해결할 수 있습니다.
+-   대부분의 경우 효율적으로 작동합니다.
+
+**단점:**
+
+-   메모리 사용량이 많아질 때까지 수집을 지연시킬 수 있음.
+-   정지 시간을 유발할 수 있음 (즉, 가비지 컬렉션이 실행되는 동안 애플리케이션이 일시적으로 멈출 수 있음).
+
+### 최적화 기법
+
+현대 자바스크립트 엔진은 가비지 컬렉션을 최적화하기 위해 여러 기법을 사용합니다:
+
+**1. 세대별 수집(Generational Collection):**
+
+-   객체를 두 가지 '세대'로 분류합니다: 젊은 세대와 오래된 세대.
+-   대부분의 객체는 짧은 생명 주기를 가지므로, 젊은 세대 객체를 자주 수집하고 오래된 세대 객체는 덜 자주 수집합니다.
+
+**2. 증분 수집(Incremental Collection):**
+
+-   긴 정지 시간을 피하기 위해, 가비지 컬렉션 작업을 여러 작은 단위로 나누어 수행합니다.
+-   따라서 애플리케이션이 긴 시간 동안 멈추지 않습니다.
+
+**3. 동시 수집(Concurrent Collection):**
+
+-   애플리케이션 스레드와 별도로 가비지 컬렉션을 수행하여, 가비지 컬렉션 동안 애플리케이션이 계속 실행될 수 있게 합니다.
+
+이러한 기법들은 자바스크립트 엔진이 메모리를 효율적으로 관리하면서도 성능에 미치는 영향을 최소화하는 데 도움을 줍니다.

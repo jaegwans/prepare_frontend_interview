@@ -6,6 +6,11 @@
 -   [리액트는 라이브러리인가요 프레임워크인가요](#리액트는-라이브러리인가요-프레임워크인가요)
 -   [리액트를 사용하는 이유](#리액트를-사용하는-이유)
 -   [virtual DOM에 대해서 아나요](#virtual-DOM에-대해서-아나요)
+-   [리액트의 렌더링에 대해 아나요](#리액트의-렌더링에-대해-아나요)
+-   [리액트 파이버에 대해서 아나요](#리액트-파이버에-대해서-아나요)
+-   [리액트 파이버 트리](#리액트-파이버-트리)
+-   [리액트 파이버와 DOM, Virtual DOM의 관계](#리액트-파이버와-DOM-Virtual-DOM의-관계)
+-   [렌더 단계와 커밋 단계에 대해 아나요](#렌더-단계와-커밋-단계에-대해-아나요)
 -   [React에서 함수 컴포넌트와 클래스 컴포넌트의 차이 🔥](#React에서-함수-컴포넌트와-클래스-컴포넌트의-차이)
 -   [리액트에서 함수형 컴포넌트라고 부르지 않고 함수 컴포넌트라고 부르는 이유가 무엇인가요🔥](#리액트에서-함수형-컴포넌트라고-부르지-않고-함수-컴포넌트라고-부르는-이유가-무엇인가요)
 -   [props와 state의 차이🔥](#props와-state의-차이)
@@ -55,6 +60,7 @@
 
     -   TTV, TTI
 
+-   [서버사이드 렌더링을 지원하기 위한 리액트 API를 알고 있나요](#서버사이드-렌더링을-지원하기-위한-리액트-API를-알고-있나요)
 -   [하이드레이션에 대해 알고 있나요](#하이드레이션에-대해-알고-있나요)
 -   [Next의 렌더링 수행 방식](#Next의-렌더링-수행-방식)
 -   [Next를 쓴 이유가 있나요](#Next를-쓴-이유가-있나요)
@@ -69,6 +75,9 @@
 -   [웹 성능 최적화](#웹-성능-최적화)
 -   [LCP가 뭔가요?](#lcp가-뭔가요)
 -   [FCP가 뭔가요?](#fcp가-뭔가요)
+
+-   [controlled pattern에 대해서 아나요?](#controlled-pattern에-대해서-아나요)
+-   [uncontrolled pattern에 대해서 아나요?](#uncontrolled-pattern에-대해서-아나요)
 
 <hr>
 
@@ -156,13 +165,15 @@ HTTP response > DOM tree > CSSOM tree > render tree > painting
 
 DOM은 새로운 요청이 있으면 위와 같은 형태를 거쳐 리렌더링을 하게 된다. DOM의 속도는 느리지 않다. 하지만 매번 새롭게 구성하기 때문에, 양이 엄청 많으면 분명 퍼포먼스가 떨어질 것이다. 여기서 이제 Virtual DOM의 장점이 나오게 된다.
 
-리액트는 Virtual DOM을 사용하여 실제 DOM에 접근하여 조작하는 대신, 이를 추상화한 자바스크립트 객체를 구성하여 사용합니다. 마치 실제 DOM의 가벼운 사본과 비슷합니다. 리액트에서 데이터가 변하여 웹 브라우저에 실제 DOM을 업데이트할 때는 다음 세 가지 절차를 밟습니다.
+**리액트는 Virtual DOM을 사용하여 실제 DOM에 접근하여 조작하는 대신, 이를 추상화한 자바스크립트 객체를 구성하여 사용합니다. 마치 실제 DOM의 가벼운 사본과 비슷합니다. 하지만 Virtual DOM은 말 그대로 실제 브라우저의 DOM이 아닌 리액트가 관리하는 가상의 DOM을 의미한다. 가상 DOM은 웹 페이지가 표시해야 할 DOM을 일단 메모리에 저장하고 리액트가 실제 변경에 대한 준비가 완료됐을 때 실제 브라우저의 DOM에 반영한다. DOM 계산을 브라우저가 아닌 메모리에서 계산하는 과정을 한 번 거치게 된다면 실제로는 여러 번 발생했을 렌더링 과정을 최소화할 수 있고 브라우저와 개발자의 부담을 덜 수 있다.**
+
+리액트에서 데이터가 변하여 웹 브라우저에 실제 DOM을 업데이트할 때는 다음 세 가지 절차를 밟습니다.
 
 1. 전체 UI를 Virtual DOM에 리렌더링
 2. 이전 내용과 현재 내용을 비교
 3. 바뀐 부분만 실제 DOM에 적용
 
-<img src="https://raw.githubusercontent.com/junh0328/TIL/master/React/images/DOMTREE.png" alt="Virtual DOM">
+<img  src="https://raw.githubusercontent.com/junh0328/TIL/master/React/images/DOMTREE.png" alt="Virtual DOM">
 
 Virtual DOM을 사용한다고 해서 사용하지 않을 때와 비교하여 무조건 빠른 것은 아닙니다. 리액트 매뉴얼에는 다음 문장이 있습니다.
 
@@ -174,6 +185,77 @@ Virtual DOM을 사용한다고 해서 사용하지 않을 때와 비교하여 �
 그렇습니다. 결국에는 적절한 곳에 사용해야 리액트기 지닌 진가를 비로소 발휘할 수 있습니다. 리액트를 사용하지 않아도 코드 최적화를 열심히 하면 DOM 작업이 느려지는 문제를 개선할 수 있고, 또 작업이 매우 간단할 때는 오히려 리액트를 사용하지 않는 편이 더 나은 성능을 보이기도 합니다.
 
 리액트와 Virtual DOM이 언제나 제공할 수 있는 것은 바로 업데이트 처리 간결성입니다. UI를 업데이트하는 과정에서 생기는 복잡함을 모두 해소하고, 더욱 쉽게 업데이트에 접근할 수 있습니다.
+
+### 리액트의 렌더링에 대해 아나요
+
+브라우저의 렌더링은 HTML과 CSS 리소스를 기반으로 웹 페이지에 필요한 UI를 그리는 과정입니다. 리액트의 렌더링의 경우 브라우저의 렌더링과 구분 지을 수 있습니다.
+
+브라우저가 렌더링에 필요한 DOM 트리를 만드는 과정으로 브라우저 렌더링보다 먼저 실행됩니다. 리액트 애플리케이션 트리 안에 있는 모든 컴포넌트들이 현재 자신들이 가지고 있는 props와 state의 값을 기반으로 어떻게 UI를 구성하고 이를 바탕으로 어떤 DOM 결과를 브라우저에 제공할 것인지 계산하는 일련의 과정입니다.
+
+### 리액트 파이버에 대해서 아나요
+
+리액트 파이버는 리액트에서 관리하는 평범한 자바스크립트 객체다. 파이버는 파이버 재조정자(fiber reconciler)가 관리하는데, 가상 DOM과 실제 DOM을 비교해 변경 사항을 수집하며, 만약 이 둘 사이에 차이가 있으면 변경에 관련된 정보를 가지고 있는 파이버를 기준으로 화면에 렌더링을 요청하는 역할을 한다.
+
+리액트 파이버는 리액트 앱에서 발생하는 애니메이션, 레이아웃, 그리고 사용자 인터렉션에 올바른 결과물을 만드는 반응성 문제를 해결하는 것이 목표이다.
+
+모든 과정은 **비동기**로 일어나며, 작업을 스케줄링하기도 한다. 애니메이션과 같이 우선순위가 높은 작업은 빠르게 처리하거나, 낮은 작업을 연기시키는 등 좀 더 유연하게 처리된다.
+
+과거 리액트의 조정 알고리즘은 스택 알고리즘으로 이루어져 하나의 스택에 렌더링에 필요한 작업들이 쌓이면 이 스택이 빌 때까지 동기적으로 작업이 이루어졌다. 자바스크립트의 특징인 싱글 스레드라는 점으로 인해 이 동기적인 작업은 중단될 수 없었기 때문에 결국 리액트의 비효율성으로 이어졌다. 이러한 기존 렌더링 스택의 비효율성을 타파하기 위해 리액트 팀은 이 스택 조정자 대신 파이버라는 개념을 탄생시킨다.
+
+### 리액트 파이버 트리
+
+파이버 트리는 리액트 내부에서 두 개가 존재한다. 현재 모습을 담은 파이버 트리와 작업 중인 상태를 나타내는 workInProgress 트리다. 리액트 파이버의 작업이 끝나면 리액트는 단순히 포인터만 변경해 workInProgress 트리를 현재 트리로 바꿔버린다. 이러한 기술을 더블 버퍼링이라고 한다.
+
+더블 버퍼링은 렌더 단계와 커밋 단계 중 커밋 단계에서 수행된다.
+
+### 리액트 파이버와 DOM, Virtual DOM의 관계
+
+리액트의 파이버 아키텍처에서 현재 모습을 담은 파이버 트리(current fiber tree)와 작업 중인 트리(workInProgress fiber tree)는 실제 DOM과 Virtual DOM과 다음과 같이 연결되어 있습니다.
+
+1. 현재 파이버 트리(current fiber tree)
+
+-   이 트리는 현재 화면에 렌더링되어 있는 UI의 상태를 나타냅니다.
+-   현재 파이버 트리의 노드들은 실제 DOM 노드와 1:1 대응 관계를 가집니다.
+-   즉, 현재 파이버 트리는 실제 DOM의 현재 모습을 가상적으로 표현합니다.
+
+2. 작업 중인 파이버 트리(workInProgress fiber tree)
+
+-   이 트리는 다음 렌더링 작업 시 업데이트될 UI 상태를 계산하기 위해 사용됩니다.
+-   작업 중인 트리는 Virtual DOM의 역할을 합니다. 여기서 새로운 Virtual DOM 트리가 생성되고 계산됩니다.
+-   작업 중인 트리에서 계산된 변경 사항은 실제 DOM에 반영되기 전에 reconciliation 과정을 거칩니다.
+
+3. Reconciliation(재조정) 과정
+
+-   React는 현재 파이버 트리와 작업 중인 트리를 비교하여 변경된 부분을 찾아냅니다.
+-   이때 변경된 부분만 실제 DOM에 반영되며, 불필요한 DOM 조작을 최소화합니다.
+-   Reconciliation 과정이 완료되면 작업 중인 트리가 새로운 현재 파이버 트리가 됩니다.
+
+4. DOM 업데이트
+
+-   Reconciliation 단계에서 발견된 변경 사항이 실제 DOM에 반영됩니다.
+-   React는 가능한 한 최소한의 DOM 변경 작업을 수행하여 성능을 최적화합니다.
+-   이 과정에서 실제 DOM과 현재 파이버 트리가 동기화됩니다.
+
+요약하면, 현재 파이버 트리는 실제 DOM의 현재 상태를 나타내고, 작업 중인 트리는 Virtual DOM의 역할을 하여 다음 렌더링 작업을 계산합니다. Reconciliation 과정을 거쳐 변경 사항이 실제 DOM에 반영되고, 작업 중인 트리가 새로운 현재 트리가 됩니다.
+이러한 파이버 아키텍처 덕분에 React는 효율적으로 UI 업데이트를 관리하고 불필요한 DOM 조작을 피할 수 있습니다. 또한 이 과정에서 프레임 단위로 작업을 분할하여 앱의 반응성을 향상시킵니다.
+
+### 렌더 단계와 커밋 단계에 대해 아나요
+
+**렌더 단계(Render Phase)**
+
+이 단계에서는 Virtual DOM 트리의 변경사항을 계산하고 메모리에 새로운 Virtual DOM 트리를 생성합니다. React는 이전 Virtual DOM과 현재 상태를 기반으로 새로운 Virtual DOM 트리를 만듭니다. 이 과정에서 React는 무엇이 변경되었는지 파악하고 최소한의 DOM 변경사항을 계산합니다. 렌더링 단계는 완전히 메모리 안에서 이루어지며 실제 DOM에는 아무런 변화가 일어나지 않습니다.
+
+**커밋 단계(Commit Phase)**
+
+렌더링 단계에서 계산된 변경 사항을 실제 DOM에 반영하는 단계입니다. React는 변경된 부분만 실제 DOM에 업데이트합니다. 이 단계에서 React는 필요한 DOM 노드를 메모리에 추가, 변경 및 제거합니다. 또한 이벤트 핸들러 등의 업데이트도 수행됩니다. 커밋 단계가 완료되면 변경된 DOM이 화면에 반영됩니다.
+
+렌더링과 커밋 단계를 분리함으로써 React는 성능을 최적화합니다:
+
+메모리 상에서 렌더링 작업을 수행하므로 DOM 작업에 비해 빠릅니다.
+실제 DOM 변경은 최소한으로 유지되어 느린 DOM 조작을 줄입니다.
+렌더링 단계에서 업데이트 로직을 중단할 수 있어 사용자 상호작용에 더욱 반응적입니다.
+
+이렇게 React의 두 단계 렌더링 방식은 Virtual DOM을 통해 변경 사항을 효율적으로 계산하고 배치 처리하여 전체 애플리케이션의 성능을 최적화합니다.
 
 ### React에서 함수 컴포넌트와 클래스 컴포넌트의 차이
 
@@ -238,6 +320,43 @@ Virtual DOM을 사용한다고 해서 사용하지 않을 때와 비교하여 �
 [링크 FLUX 카툰 안내서](https://bestalign.github.io/translation/cartoon-guide-to-flux/)
 
 `리덕스는 페이스북에서 리액트가 함께 소개한 FLUX 아키텍쳐로 구현한 라이브러리입니다.`
+
+예제 코드
+
+```tsx
+type StoreState = {
+    count: number;
+};
+
+type Action = { type: 'add'; payload: number };
+
+function reducer(state: StoreState, action: Action) {
+    const { type: ActionType, payload } = action;
+
+    if (ActionType === 'add') {
+        return {
+            count: state.count + payload,
+        };
+    }
+
+    throw new Error(`Unexpected action type: ${ActionType}`);
+}
+
+export default function App() {
+    const [state, dispatcher] = useReducer(reducer, { count: 0 });
+
+    function handleClick() {
+        dispatcher({ type: 'add', payload: 1 });
+    }
+
+    return (
+        <div>
+            <p>{state.count}</p>
+            <button onClick={handleClick}>Add</button>
+        </div>
+    );
+}
+```
 
 그렇다면 FLUX는 뭘까요? FLUX는 라이브러리나 프레임워크가 아닌 추상적인 개념입니다.
 
@@ -565,6 +684,54 @@ import { useState } from 'react';
 const [value, setValue] = useState(0);
 ```
 
+### useState 내부의 모습을 구현한 모습
+
+```jsx
+const MyReact = (function () {
+    const global = {};
+    let index = 0;
+
+    function useState(initialState) {
+        if (!global.states) {
+            // 애플리케이션 전체의 states 배열을 초기화한다.
+            // 최초 접근이라면 빈 배열로 초기화한다.
+            global.states = [];
+        }
+
+        // states 정보를 조회해서 현재 상태값이 있는지 확인하고 없다면 초깃값으로 설정한다.
+        const currentState = global.states[index] || initialState;
+        // states의 값을 위에서 조회한 현재 값으로 업데이트한다.
+        global.states[index] = currentState;
+
+        // 즉시 실행 함수로 setter를 만든다.
+        const setState = (function () {
+            // 현재 index를 클로저로 가둬놔서 이후에도 계속해서 동인한 index에 접근할 수 있도록 한다.
+            let currentIndex = index;
+            return function (value) {
+                global.states[currentIndex] = value;
+                // 컴포넌트를 렌더링한다. 실제로 컴포넌트를 렌더링하는 코드는 생략했다.
+            };
+        })();
+
+        /**
+         * useState를 쓸 때마다 index를 하나씩 추가한다. 이 index는 setState에서 사용된다.
+         * 즉, 하나의 state마다 index가 할당돼 있어 그 index가 배열의 값(global.states)을 가리키고 필요할 때마다 그 값을 가져오게 한다.
+         **/
+
+        index = index + 1;
+
+        return [currentState, setState];
+    }
+
+    function Component() {
+        const [value, setValue] = useState(0);
+
+        //...
+        return <div>{value}</div>;
+    }
+})();
+```
+
 <br/>
 
 2. useEffect
@@ -615,6 +782,62 @@ useEffect(() => {
 3. useReducer
 
 -   useReducer는 useState보다 더 다양한 컴포넌트 상황에 따라 다양한 상태를 다른 값으로 업데이트해 주고 싶을 때 사용하는 Hook입니다. 리듀서는 현재 상태, 그리고 업데이트를 위해 필요한 정보를 담은 액션 값을 전달받아 새로운 상태에 반환하는 함수입니다. 리듀서 함수에서 새로운 상태를 만들 때는 반드시 불변성을 지켜주어야 합니다.
+
+```jsx
+type State = {
+    count: number,
+};
+
+type Action = { type: 'up' | 'down' | 'reset', payload?: State };
+
+function init(count: State): State {
+    return count;
+}
+
+const initialState: State = { count: 0 };
+
+function reducer(state: State, action: Action): State {
+    switch (action.type) {
+        case 'up':
+            return { count: state.count + 1 };
+        case 'down':
+            return { count: state.count - 1 };
+        case 'reset':
+            return init(action.payload || { count: 0 });
+        default:
+            throw new Error(`Unexpected action type ${action.type}`);
+    }
+}
+
+export default function App() {
+    const [state, dispatcher] = useReducer(reducer, initialState, init);
+
+    function handleUpButtonClick() {
+        dispatcher({ type: 'up' });
+    }
+
+    function handleDownButtonClick() {
+        dispatcher({ type: 'down' });
+    }
+
+    function handleResetButtonClick() {
+        dispatcher({ type: 'reset', payload: { count: 1 } });
+    }
+
+    return (
+        <div>
+            <h1>{state.count}</h1>
+            <button onClick={handleDownButtonClick}>+</button>
+            <button onClick={handleDownButtonClick}>-</button>
+            <button onClick={handleResetButtonClick}>reset</button>
+        </div>
+    );
+}
+```
+
+useReducer를 사용하는 모습이 언뜻 보면 복잡해 보일 수 있지만 useReducer의 목적은 간단합니다. 복잡한 형태의 state를 사전에 정의된 dispatcher로만 수정할 수 있게 만들어 줌으로써 state 값에 대한 접근은 컴포넌트에서만 가능하게 하고, 이를 업데이트하는 방법에 대한 상세 정의는 컴포넌트 밖에 둔 다음, state의 업데이트를 미리 정의해 둔 dispatcher로만 제한하는 것이다.
+
+**state의 값을 변경하는 시나리오를 제한적으로 두고 이에 대한 변경을 빠르게 확인할 수 있게끔 하는 것이 useReducer의 목적이다.**
 
 <br/>
 
@@ -1060,7 +1283,7 @@ const plusNum = (number) => {
 
 ### SSR이 뭔가요
 
-<p>리액트는 대표적인 CSR(client side rendering)입니다. 이러한 리액트의 CSR적인 부분에서 SSR 적으로 바꿔 주기 위해서 next.js와 같은 라이브러리를 사용합니다.</p>
+<p>리액트는 대표적인 CSR(client side rendering)입니다. 이러한 리액트의 CSR적인 부분에서 SSR 적으로 바꿔 주기 위해서 next.js와 같은 프레임워크를 사용합니다.</p>
 
 <p>SSR을 사용하는 가장 큰 이유는 효율적인 SEO를 위해서 입니다. 아래 문단에서 다루겠지만, SEO는 google, naver와 같은 검색 엔진들이 우리의 웹사이트에서 html 태그안의 내용을(title, meta-data 등등,,,) 분석하여 사용자가 입력한 정보를 바탕으로 알맞은(사용자가 원하는) 정보를 찾을 수 있게 하는 기능입니다. 리액트는 CSR으로 작동되는데, 사용자가 우리의 해당 도메인에 접속하면, 클라이언트 서버(사용자의 컴퓨터)가 html과 js 등의 파일을 다운받아 보여주는 형식입니다. CSR 상태에서는 사전에 html을 가지고 있지 않기 때문에 검색 엔진에 노출되는 빈도가 현저히 적거나, 브라우저에 따라 검색 엔진에 해당 정보가 노출되지 않아 검색을 해도 나오지 않을 수 있습니다.(도메인을 통해 접속하는 것은 가능해지는 정도, 해당 사이트에 관련된 정보를 검색 엔진이 크롤링하지 못할 수 있음)그래서 SSR을 통해 서버가 사전에 html과 일부 js 파일을 넘겨주게 되면, 검색 엔진에서 이를 캐치하여 사용자가 원하는 정보가 담긴 우리 사이트를 보여줄 수 있을 것입니다.</p>
 
@@ -1087,6 +1310,36 @@ const plusNum = (number) => {
 <p>요즘에는 SSR, CSR 뿐만 아니라 SSG(Static Site Generation)또한 렌더링 방법으로 등장하였습니다. SSG는 리액트를 예로 들면 'Gatsby' 또는 'Next'와 같은 라이브러리를 추가적으로 사용하여 렌더링을 하는 것인데, 웹페이지를 정적으로 미리 생성해두고, 서버에 배포해놓는 것입니다. SSG에서도 자바스크립트 파일을 html 파일과 함께 가지고 있을 수 있기 때문에, 동적인 요소도 충분히 추가할 수 있습니다. Next에서는 SSR뿐만 아니라, static generation, no pre-rendering, pre-rendering상태를 모두 지원하기 때문에 리액트로 작업을 계속한다면 next.js를 배워보는 것도 매우 효과적일 겁니다.</p>
 
 <p>어떤 것이 최고다, 제일 낫다라는 판단 보다는 우리가 만들어야 하는 웹사이트 특성에 맞게 다양한 방식의 렌더링을 활용하여 페이지를 구성한다면 최선의 선택이 될 것입니다.</p>
+
+### 서버사이드 렌더링을 지원하기 위한 리액트 API를 알고 있나요 ?
+
+**renderToString**
+
+-   리액트 컴포넌트를 렌더링하여 정적 HTML 문자열을 반환합니다.
+-   SSR 시 가장 일반적으로 사용되는 API입니다.
+
+**renderToStaticMarkup**
+
+-   renderToString과 유사하지만, 일부 데이터 리액트 내부 데이터 속성을 추가하지 않습니다.
+-   정적 페이지 생성 시 사용됩니다.
+
+**renderToNodeStream > renderToPipeableStream**
+
+-   리액트 컴포넌트를 렌더링하여 Node.js 스트림을 반환합니다.
+-   대용량 컴포넌트를 스트리밍하거나 프록시 서버에서 사용될 수 있습니다.
+-   React 18 버전에서 renderToPipeableStream 으로 메서드가 변경되었습니다.
+
+**renderToStaticNodeStream**
+
+-   renderToNodeStream과 유사하지만, 데이터 속성을 추가하지 않습니다.
+-   정적 페이지 생성 시 스트리밍 렌더링에 사용될 수 있습니다.
+
+**hydrate**
+
+-   서버에서 렌더링된 HTML 코드를 브라우저에서 인식하고 이벤트 핸들러를 연결하는 역할을 합니다.
+-   클라이언트 측에서 서버 렌더링 마크업에 이벤트 핸들러를 연결할 때 사용됩니다.
+-   이미 렌더링된 HTML이 있다는 가정하에 작업을 수행합니다
+-   renderToString, renderToNodeStream 등으로 생성된 HTML 컨텐츠에 자바스크립트 핸들러나 이벤트를 붙이는 역할을 합니다
 
 ### 하이드레이션에 대해 알고 있나요
 
@@ -1402,7 +1655,7 @@ function ProfileTimeline() {
 
 ### LCP가 뭔가요?
 
-LCP(Large Contentful Paint)는 웹 페이지에서 가장 큰 콘텐츠 요소를 로드하고 사용자가 볼 수 있는 데 걸리는 시간을 측정하는 성능 지표입니다.
+LCP(Largest Contentful Paint)는 웹 페이지에서 가장 큰 콘텐츠 요소를 로드하고 사용자가 볼 수 있는 데 걸리는 시간을 측정하는 성능 지표입니다.
 
 이것은 웹 페이지의 로딩 속도에 대한 사용자의 인식을 반영하고 웹 페이지에 대한 사용자의 참여에 영향을 미칠 수 있기 때문에 중요한 지표입니다.
 
@@ -1421,3 +1674,127 @@ FCP를 개선하기 위해 HTML, CSS 및 JavaScript 파일의 크기를 줄이�
 ### 컴포넌트의 리렌더링 조건 4가지에 대해 설명해주세요.
 
 컴포넌트는 상태(state)가 변경될 때, 프로퍼티(props)가 변경될 때, 부모 컴포넌트가 리렌더링될 때, 강제로 리렌더링을 트리거할 때 리렌더링됩니다. 이는 컴포넌트가 새로운 데이터로 화면을 갱신해야 할 때 발생합니다.
+
+### controlled pattern에 대해서 아나요?
+
+React의 Controlled 패턴은 폼 요소의 상태를 React 컴포넌트의 state로 관리하는 방식입니다. 이 패턴을 사용하면 React가 폼의 데이터를 완전히 제어할 수 있게 됩니다.
+
+Controlled 패턴의 주요 특징:
+
+1. 상태 관리:
+
+    - 폼 요소의 값을 React의 state로 관리합니다.
+    - 사용자 입력에 따라 state를 업데이트합니다.
+
+2. 값 설정:
+
+    - 폼 요소의 value 속성을 state 값으로 설정합니다.
+
+3. 이벤트 핸들링:
+    - onChange 이벤트를 통해 사용자 입력을 감지하고 state를 업데이트합니다.
+
+예시 코드:
+
+```jsx
+import React, { useState } from 'react';
+
+function ControlledForm() {
+    const [inputValue, setInputValue] = useState('');
+
+    const handleChange = (event) => {
+        setInputValue(event.target.value);
+    };
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        console.log('Submitted value:', inputValue);
+    };
+
+    return (
+        <form onSubmit={handleSubmit}>
+            <input type="text" value={inputValue} onChange={handleChange} />
+            <button type="submit">Submit</button>
+        </form>
+    );
+}
+```
+
+Controlled 패턴의 장점:
+
+1. 데이터 일관성: React가 폼 데이터를 완전히 제어하므로 UI와 상태 간의 일관성을 보장합니다.
+
+2. 즉시 유효성 검사: 사용자 입력에 따라 즉시 유효성을 검사하고 피드백을 제공할 수 있습니다.
+
+3. 조건부 비활성화: 특정 조건에 따라 폼 요소를 쉽게 비활성화할 수 있습니다.
+
+4. 값 포맷팅: 입력값을 즉시 포맷팅하거나 변환할 수 있습니다.
+
+주의사항:
+
+1. 성능: 많은 수의 폼 요소가 있는 경우, 각 입력마다 리렌더링이 발생할 수 있어 성능에 영향을 줄 수 있습니다.
+
+2. 복잡성: 간단한 폼의 경우 Uncontrolled 컴포넌트를 사용하는 것이 더 간단할 수 있습니다.
+
+Controlled 패턴은 React에서 폼을 다룰 때 권장되는 방식이며, 특히 복잡한 폼이나 동적인 유효성 검사가 필요한 경우에 유용합니다.
+
+### uncontrolled pattern에 대해서 아나요?
+
+Uncontrolled 패턴은 React에서 폼 요소의 상태를 직접 React의 state로 관리하지 않고, DOM이 내부적으로 관리하도록 하는 방식입니다. 이 방식은 주로 ref를 사용하여 필요할 때만 DOM에서 값을 가져옵니다.
+
+Uncontrolled 패턴의 주요 특징:
+
+1. 상태 관리:
+
+    - React의 state를 사용하지 않고 DOM이 자체적으로 상태를 관리합니다.
+    - 필요한 경우에만 ref를 통해 DOM에서 값을 읽어옵니다.
+
+2. 값 설정:
+
+    - 초기값을 설정하려면 defaultValue 속성을 사용합니다.
+
+3. 이벤트 핸들링:
+    - onChange 이벤트를 반드시 사용할 필요가 없습니다.
+
+예시 코드:
+
+```jsx
+import React, { useRef } from 'react';
+
+function UncontrolledForm() {
+    const inputRef = useRef(null);
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        console.log('Submitted value:', inputRef.current.value);
+    };
+
+    return (
+        <form onSubmit={handleSubmit}>
+            <input type="text" defaultValue="" ref={inputRef} />
+            <button type="submit">Submit</button>
+        </form>
+    );
+}
+```
+
+Uncontrolled 패턴의 장점:
+
+1. 간단성: 간단한 폼의 경우 코드가 더 간결해질 수 있습니다.
+
+2. 성능: React의 state를 사용하지 않으므로 입력 시마다 리렌더링이 발생하지 않습니다.
+
+3. 외부 라이브러리 통합: React 외부의 DOM 기반 라이브러리와 통합하기 쉽습니다.
+
+4. 파일 입력: file input과 같이 읽기 전용 값을 다룰 때 유용합니다.
+
+주의사항:
+
+1. 유효성 검사: 즉각적인 유효성 검사나 입력값 변환이 어렵습니다.
+
+2. 동적 UI: 입력값에 따라 UI를 동적으로 변경하기 어렵습니다.
+
+3. 값 초기화: 프로그래밍 방식으로 입력값을 초기화하거나 변경하기 어렵습니다.
+
+Uncontrolled 패턴은 간단한 폼이나 성능 최적화가 필요한 경우, 또는 비-React 코드와의 통합이 필요한 경우에 유용할 수 있습니다. 하지만 React 공식 문서에서는 대부분의 경우 Controlled 컴포넌트를 사용할 것을 권장하고 있습니다.
+
+Controlled와 Uncontrolled 패턴은 각각의 장단점이 있으므로, 상황에 따라 적절한 패턴을 선택하는 것이 중요합니다.
